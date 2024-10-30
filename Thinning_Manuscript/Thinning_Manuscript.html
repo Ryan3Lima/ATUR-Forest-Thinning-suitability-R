@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.43">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Ryan E Lima">
+<meta name="author" content="Temuulen Tsagaan Sankey">
+<meta name="author" content="Abraham E Springer">
+<meta name="dcterms.date" content="2024-10-30">
+<meta name="keywords" content="suitability mapping, forest thinning, water yield, groundwater recharge">
+
+<title>Mapping landscape suitability for forest thinning to reduce evapotranspiration and enhance groundwater recharge in Arizona</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="Thinning_Manuscript_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Thinning_Manuscript_files/libs/quarto-html/quarto.js"></script>
+<script src="Thinning_Manuscript_files/libs/quarto-html/popper.min.js"></script>
+<script src="Thinning_Manuscript_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Thinning_Manuscript_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Thinning_Manuscript_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Thinning_Manuscript_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Thinning_Manuscript_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Thinning_Manuscript_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Thinning_Manuscript_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Mapping landscape suitability for forest thinning to reduce evapotranspiration and enhance groundwater recharge in Arizona</h1>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Authors</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Ryan E Lima <a href="mailto:ryan.lima@nau.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0002-5352-7215" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Northern Arizona University
+          </p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Temuulen Tsagaan Sankey <a href="https://orcid.org/0000-0002-7859-8394" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Northern Arizona University
+          </p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Abraham E Springer <a href="https://orcid.org/????" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Northern Arizona University
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 30, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="block-title">Abstract</div>
+    Here, we review the literature on the effects of forest thinning on water yield throughout Arizona and map areas where mechanical treatment has the highest potential for increasing groundwater recharge. This research synthesizes the myriad studies examining the effects of forest treatment on water ield in semi-arid forests and compiles a list of relevant variables. Our approach combines thematic maps of average precipitation, elevation, slope, aspect, forest type, forest density, depth to bedrock, and soil type into a GIS suitability model to highlight areas where forest treatment will most likely enhance recharge statewide.
+  </div>
+</div>
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>suitability mapping, forest thinning, water yield, groundwater recharge</p>
+  </div>
+</div>
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>Since 2000, the Colorado River Basin has been in the midst of a historic drought <span class="citation" data-cites="meko_treering_2022 williams_rapid_2022">(<a href="#ref-meko_treering_2022" role="doc-biblioref">Meko, Woodhouse, and Winitsky 2022</a>; <a href="#ref-williams_rapid_2022" role="doc-biblioref">Williams, Cook, and Smerdon 2022</a>)</span>. Average temperatures increased by 0.9ºC from 2000 - 2014, and streamflow in the Colorado River has declined by 19% below the 1906-1999 average <span class="citation" data-cites="hogan_recent_2024 udall_twentyfirst_2017">(<a href="#ref-hogan_recent_2024" role="doc-biblioref">Hogan and Lundquist 2024</a>; <a href="#ref-udall_twentyfirst_2017" role="doc-biblioref">Udall and Overpeck 2017</a>)</span>. Extreme hydroclimate events such as droughts, heatwaves, and floods have more than doubled in frequency since 2010 <span class="citation" data-cites="bennett_concurrent_2021">(<a href="#ref-bennett_concurrent_2021" role="doc-biblioref">Bennett, Talsma, and Boero 2021</a>)</span>. Simultaneously, Arizona has experienced rapid population growth, increasing the demands on already strained water supplies. Reductions in streamflow have increased reliance on groundwater, while groundwater levels have declined for decades <span class="citation" data-cites="tadych_historical_2024">(<a href="#ref-tadych_historical_2024" role="doc-biblioref">Tadych et al. 2024</a>)</span>. Average annual precipitation in the lower Colorado River Basin is about 330mm, and only about 10mm of that precipitation becomes streamflow while much of the rest is lost to Evapotranspiration <span class="citation" data-cites="zou_streamflow_2010">(<a href="#ref-zou_streamflow_2010" role="doc-biblioref">Zou, Ffolliott, and Wine 2010</a>)</span>. Sublimation has been shown to remove 10 - 90% of snowfall in the basin; the remaining snowmelt provides over 80% of streamflow to the Colorado River <span class="citation" data-cites="lundquist_sublimation_2024">(<a href="#ref-lundquist_sublimation_2024" role="doc-biblioref">Lundquist et al. 2024</a>)</span>. Therefore, small reductions in evaporative losses could have outsized impacts on available water supplies.</p>
+<p>Over 90% of annual precipitation in semi-arid forests can be lost to evapotranspiration <span class="citation" data-cites="dore_recovery_2012 ha_evapotranspiration_2015 yaseef_ecohydrology_2010">(<a href="#ref-dore_recovery_2012" role="doc-biblioref">Dore et al. 2012</a>; <a href="#ref-ha_evapotranspiration_2015" role="doc-biblioref">Ha et al. 2015</a>; <a href="#ref-yaseef_ecohydrology_2010" role="doc-biblioref">Yaseef et al. 2010</a>)</span>. Around 65% of surface water in the western states originates from forested lands, which cover just 29% of the land area <span class="citation" data-cites="brown_source_2005">(<a href="#ref-brown_source_2005" role="doc-biblioref">Brown, Hobbins, and Ramirez 2005</a>)</span>. However, western forests are increasingly at risk from catastrophic wildfires, an emerging driver of runoff change that will increase the impact on the water supply <span class="citation" data-cites="williams_rapid_2022">(<a href="#ref-williams_rapid_2022" role="doc-biblioref">Williams, Cook, and Smerdon 2022</a>)</span>. Forest structure has changed significantly post-Euro-American settlement due to grazing, logging, wildfire exclusion and other factors <span class="citation" data-cites="covington_southwestern_1994">(<a href="#ref-covington_southwestern_1994" role="doc-biblioref">Covington and Moore 1994</a>)</span>. As a result, many forests in Arizona are overstocked relative to pre-settlement conditions, increasing the risk of catastrophic wildfire <span class="citation" data-cites="allen_ecological_2002">(<a href="#ref-allen_ecological_2002" role="doc-biblioref">Allen et al. 2002</a>)</span>. Increasing temperatures and related droughts have contributed to extensive tree mortality from wildfire, disease, and insect infestation <span class="citation" data-cites="berner_tree_2017">(<a href="#ref-berner_tree_2017" role="doc-biblioref">Berner et al. 2017</a>)</span>. Warming temperatures have tripled the frequency and quadrupled the size of wildfires in recent decades <span class="citation" data-cites="williams_rapid_2022">(<a href="#ref-williams_rapid_2022" role="doc-biblioref">Williams, Cook, and Smerdon 2022</a>)</span>. Increasing heat has pushed many low-elevation conifer forests past climate thresholds, creating conditions less suitable for tree regeneration <span class="citation" data-cites="davis_wildfires_2019">(<a href="#ref-davis_wildfires_2019" role="doc-biblioref">Davis et al. 2019</a>)</span>.</p>
+<p>Landscape-scale forest restoration efforts have been planned or implemented across much of Arizona. For example, the Four Forest Restoration Initiative (4FRI) includes plans for restoration across over 2.5 million acres of Arizona’s forests <span class="citation" data-cites="schultz_collaborative_2012">(<a href="#ref-schultz_collaborative_2012" role="doc-biblioref">Schultz, Jedd, and Beam 2012</a>)</span>. The primary goal of restoration efforts is to reduce wildfire risk <span class="citation" data-cites="allen_ecological_2002">(<a href="#ref-allen_ecological_2002" role="doc-biblioref">Allen et al. 2002</a>)</span>. However, numerous studies have linked forest treatments to increased water yields in semi-arid forests and have emphasized the role of forest restoration in improving hydrologic services and increasing water availability <span class="citation" data-cites="bosch_review_1982 baker_effects_1986 gottfried_moderate_1991 smerdon_overview_2009 zou_streamflow_2010 wyatt_estimating_2013 moreno_modeling_2015 simonit_impact_2015 wyatt_semiarid_2015 odonnell_forest_2018 schenk_impacts_2020">(<a href="#ref-bosch_review_1982" role="doc-biblioref">Bosch and Hewlett 1982</a>; <a href="#ref-baker_effects_1986" role="doc-biblioref">Baker 1986</a>; <a href="#ref-gottfried_moderate_1991" role="doc-biblioref">Gottfried 1991</a>; <a href="#ref-smerdon_overview_2009" role="doc-biblioref">Smerdon, Redding, and Beckers 2009</a>; <a href="#ref-zou_streamflow_2010" role="doc-biblioref">Zou, Ffolliott, and Wine 2010</a>; <a href="#ref-wyatt_estimating_2013" role="doc-biblioref">C. J. W. Wyatt 2013</a>; <a href="#ref-moreno_modeling_2015" role="doc-biblioref">Moreno et al. 2015</a>; <a href="#ref-simonit_impact_2015" role="doc-biblioref">Simonit et al. 2015</a>; <a href="#ref-wyatt_semiarid_2015" role="doc-biblioref">C. Wyatt, O’Donnell, and Abraham E. Springer 2015</a>; <a href="#ref-odonnell_forest_2018" role="doc-biblioref">O’Donnell et al. 2018</a>; <a href="#ref-schenk_impacts_2020" role="doc-biblioref">Schenk et al. 2020</a>)</span>. Forest treatments such as thinning and burning can significantly impact the hydrologic cycle of forests <span class="citation" data-cites="del_campo_global_2022">(<a href="#ref-del_campo_global_2022" role="doc-biblioref">Del Campo et al. 2022</a>)</span>. For example, forest thinning in Arizona has been associated with increased snow cover days <span class="citation" data-cites="sankey_multi-scale_2015 belmonte_uav-based_2021 donager_integrating_2021">(<a href="#ref-sankey_multi-scale_2015" role="doc-biblioref">Sankey et al. 2015</a>; <a href="#ref-belmonte_uav-based_2021" role="doc-biblioref">Belmonte et al. 2021</a>; <a href="#ref-donager_integrating_2021" role="doc-biblioref">Donager et al. 2021</a>)</span>, greater soil moisture <span class="citation" data-cites="belmonte_soil_2022 sankey_thinning_2022">(<a href="#ref-belmonte_soil_2022" role="doc-biblioref">Belmonte et al. 2022</a>; <a href="#ref-sankey_thinning_2022" role="doc-biblioref">Sankey and Tatum 2022</a>)</span>, and greater forest canopy moisture <span class="citation" data-cites="sankey_regionalscale_2021">(<a href="#ref-sankey_regionalscale_2021" role="doc-biblioref">Sankey et al. 2021</a>)</span>. However, the response of forests to treatments is complex and non-linear and differs across forest types, with treatment level, and along aspect and elevational gradients <span class="citation" data-cites="del_campo_global_2022 biederman_streamflow_2022 zou_streamflow_2010 moore_physical_2005">(<a href="#ref-del_campo_global_2022" role="doc-biblioref">Del Campo et al. 2022</a>; <a href="#ref-biederman_streamflow_2022" role="doc-biblioref">Biederman et al. 2022</a>; <a href="#ref-zou_streamflow_2010" role="doc-biblioref">Zou, Ffolliott, and Wine 2010</a>; <a href="#ref-moore_physical_2005" role="doc-biblioref">Moore and Wondzell 2005</a>)</span>. This research aims to develop criteria for areas suitable for thinning to enhance groundwater recharge. It focuses primarily on regional studies that are likely the best predictor of hydrologic response to treatment <span class="citation" data-cites="wyatt_estimating_2013">(<a href="#ref-wyatt_estimating_2013" role="doc-biblioref">C. J. W. Wyatt 2013</a>)</span>.</p>
+<section id="regional-hydrologic-responses-to-treatment" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="regional-hydrologic-responses-to-treatment"><span class="header-section-number">1.1</span> Regional Hydrologic Responses to Treatment</h3>
+<p>Several regional studies link forest treatment to changes in stand-level ecohydrology, including increased tree growth in Ponderosa Pines (<strong>Rodman et al., 2024</strong>), greater soil moisture and total ecosystem moisture [], increased drought resilience [], Increased snow retention, greater streamflow [], water table rise and increased spring flow []</p>
+<section id="water-yieldrunoff" class="level4" data-number="1.1.1">
+<h4 data-number="1.1.1" class="anchored" data-anchor-id="water-yieldrunoff"><span class="header-section-number">1.1.1</span> Water Yield/Runoff</h4>
+<p>Several regional studies link forest treatment to increased streamflow <span class="citation" data-cites="dwivedi_how_2024 biederman_streamflow_2022 broxton_subseasonal_2023">(<a href="#ref-dwivedi_how_2024" role="doc-biblioref">Dwivedi et al. 2024</a>; <a href="#ref-biederman_streamflow_2022" role="doc-biblioref">Biederman et al. 2022</a>; <a href="#ref-broxton_subseasonal_2023" role="doc-biblioref">Broxton et al. 2023</a>)</span>. However, there appears to be a threshold response, with water yield increasing only in treated forests receiving over 500mm of annual precipitation or snow-dominated forests <span class="citation" data-cites="biederman_streamflow_2022 carroll_evaluating_2016 adams_ecohydrological_2012 zou_streamflow_2010">(<a href="#ref-biederman_streamflow_2022" role="doc-biblioref">Biederman et al. 2022</a>; <a href="#ref-carroll_evaluating_2016" role="doc-biblioref">Carroll et al. 2016</a>; <a href="#ref-adams_ecohydrological_2012" role="doc-biblioref">Adams et al. 2012</a>; <a href="#ref-zou_streamflow_2010" role="doc-biblioref">Zou, Ffolliott, and Wine 2010</a>)</span>.</p>
+</section>
+<section id="soil-moisture-and-drought-resilience" class="level4" data-number="1.1.2">
+<h4 data-number="1.1.2" class="anchored" data-anchor-id="soil-moisture-and-drought-resilience"><span class="header-section-number">1.1.2</span> Soil Moisture and Drought Resilience</h4>
+<p>A synthesis of several treatment types across Northern Arizona, including thinning at various levels and prescribed burning, found that treated sites had significantly greater total ecosystem moisture, making forests more resilient to drought<span class="citation" data-cites="sankey_regionalscale_2021 sankey_thinning_2022">(<a href="#ref-sankey_regionalscale_2021" role="doc-biblioref">Sankey et al. 2021</a>; <a href="#ref-sankey_thinning_2022" role="doc-biblioref">Sankey and Tatum 2022</a>)</span>. Treatments were shown to increase tree growth, improving resilience to drought in Ponderosa Pine forests (<strong>Rodman et al., 2024</strong>). Thinned Ponderosa Pine forests have higher soil moisture for two to eight years post-thinning, a result also found in semi-arid forests around the Mediterranean <span class="citation" data-cites="belmonte_soil_2022 del_campo_global_2022 odonnell_vegetation_2021 del_campo_effectiveness_2019">(<a href="#ref-belmonte_soil_2022" role="doc-biblioref">Belmonte et al. 2022</a>; <a href="#ref-del_campo_global_2022" role="doc-biblioref">Del Campo et al. 2022</a>, <a href="#ref-del_campo_effectiveness_2019" role="doc-biblioref">2019</a>; <a href="#ref-odonnell_vegetation_2021" role="doc-biblioref">O’Donnell et al. 2021</a>)</span>.</p>
+</section>
+</section>
+<section id="justification" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="justification"><span class="header-section-number">1.2</span> Justification</h3>
+<ul>
+<li><p>regional studies are the best predictor of hydrologic response to thinning in Arizona forests <span class="citation" data-cites="wyatt_estimating_2013">(<a href="#ref-wyatt_estimating_2013" role="doc-biblioref">C. J. W. Wyatt 2013</a>)</span></p></li>
+<li><p>A snythesis of all 4FRI treatments found that thinned and burned forests have signifiantly greater total ecosystem moisture and are thus more resilient to drought and wildfire <span class="citation" data-cites="sankey_regionalscale_2021">(<a href="#ref-sankey_regionalscale_2021" role="doc-biblioref">Sankey et al. 2021</a>)</span></p></li>
+<li><p>Thinned forests are better buffered against drought impacts in terms of both soil moisture and tree health <span class="citation" data-cites="sankey_thinning_2022">(<a href="#ref-sankey_thinning_2022" role="doc-biblioref">Sankey and Tatum 2022</a>)</span>.</p></li>
+<li><p>Soil moisture and ET may be affected by thinning for 3.6 - 8.6 years <span class="citation" data-cites="del_campo_global_2022">(<a href="#ref-del_campo_global_2022" role="doc-biblioref">Del Campo et al. 2022</a>)</span>.</p></li>
+<li><p>Prescribed burning or thinning can increase tree growth, improving resilience to drought in ponderosa pine forests (Rodman et al., 2024)</p></li>
+<li><p>Thinned forests (around Flagstaff) have higher soil moisture at 25 and 50cm in the first two years post-thinning <span class="citation" data-cites="belmonte_soil_2022">(<a href="#ref-belmonte_soil_2022" role="doc-biblioref">Belmonte et al. 2022</a>)</span>.</p></li>
+<li><p>Thinning in semi-arid forests around the Mediterranean increased antecedent soil moisture and below ground hydrologic processes and increased deep soil moisture by 50mm/year over the control <span class="citation" data-cites="del_campo_effectiveness_2019">(<a href="#ref-del_campo_effectiveness_2019" role="doc-biblioref">Del Campo et al. 2019</a>)</span>.</p></li>
+<li><p>a review of 35 studies published from 1971 to 2018 found that thinning was more effective than clear-cutting in terms of increasing groundwater recharge due to reduced sublimation and evaporation. Springs can effectively monitor groundwater recharge effects in arid lands <span class="citation" data-cites="schenk_impacts_2020">(<a href="#ref-schenk_impacts_2020" role="doc-biblioref">Schenk et al. 2020</a>)</span>.</p></li>
+<li><p>A review of studies on forest mgmt effects on groundwater resources found that a rise in the water table can generally be expected following forest thinning in all forested landscapes <span class="citation" data-cites="smerdon_overview_2009">(<a href="#ref-smerdon_overview_2009" role="doc-biblioref">Smerdon, Redding, and Beckers 2009</a>)</span>.</p></li>
+</ul>
+<section id="snow-retention" class="level4" data-number="1.2.1">
+<h4 data-number="1.2.1" class="anchored" data-anchor-id="snow-retention"><span class="header-section-number">1.2.1</span> Snow retention</h4>
+<ul>
+<li><p>The effects of forest thinning and subsequent snowmelt are highly variable, with responses depending on forest structure and local climate, where thinning in dense and taller vegetation generally increases snow retention, thinning in shorter, less dense forests may decrease retention <span class="citation" data-cites="lewis_prediction_2023">(<a href="#ref-lewis_prediction_2023" role="doc-biblioref">Lewis et al. 2023</a>)</span>.</p></li>
+<li><p>In semi-arid forested watersheds, thinning can influence streamflow variability by modifying snowpack accumulation and melt, particularly in wetter years where thinning can either reduce or increase snow retention based on site-specific conditions.<span class="citation" data-cites="broxton_subseasonal_2023">(<a href="#ref-broxton_subseasonal_2023" role="doc-biblioref">Broxton et al. 2023</a>)</span>.</p></li>
+<li><p>Thinning in semi-arid forested watersheds can significantly impact streamflow by altering snowmelt timing, with reduced forest cover tending to delay snowmelt at warmer sites while advancing melt at cooler, snowpack-persistent sites <span class="citation" data-cites="dwivedi_how_2024">(<a href="#ref-dwivedi_how_2024" role="doc-biblioref">Dwivedi et al. 2024</a>)</span>.</p></li>
+<li><p>Thinned forests around Flagstaff have greater snow persistence at 25%-35% canopy cover <span class="citation" data-cites="belmonte_uav-based_2021">(<a href="#ref-belmonte_uav-based_2021" role="doc-biblioref">Belmonte et al. 2021</a>)</span></p></li>
+<li><p>Thinned forests in Northern Arizona have more snow and soil moisture <span class="citation" data-cites="odonnell_vegetation_2021">(<a href="#ref-odonnell_vegetation_2021" role="doc-biblioref">O’Donnell et al. 2021</a>)</span></p></li>
+<li><p>Found that thinned and burned vs.&nbsp;control forests had varying rates of snowmelt and snow persistence. Canopy cover is most predictive of snow persistence <span class="citation" data-cites="donager_integrating_2021">(<a href="#ref-donager_integrating_2021" role="doc-biblioref">Donager et al. 2021</a>)</span>.</p></li>
+</ul>
+</section>
+<section id="thresholds-in-literature" class="level4" data-number="1.2.2">
+<h4 data-number="1.2.2" class="anchored" data-anchor-id="thresholds-in-literature"><span class="header-section-number">1.2.2</span> Thresholds in literature</h4>
+<ul>
+<li><p>A review of 94 catchment studies showed that significant changes in water yield are correlated to forest growth in forests that receive 600-1200 mm of mean annual precipitation Bosch and Hewlett, 1982 The caveat being there were not many coniferous forests studies in that precipitation range <span class="citation" data-cites="bosch_review_1982">(<a href="#ref-bosch_review_1982" role="doc-biblioref">Bosch and Hewlett 1982</a>)</span>.</p></li>
+<li><p><span class="citation" data-cites="adams_ecohydrological_2012">(<a href="#ref-adams_ecohydrological_2012" role="doc-biblioref">Adams et al. 2012</a>)</span> hypothesized that where annual precipitation exceeds ~500 mm or water yield is dominated by snowmelt, watershed will experience significantly decreased evapotranspiration and increased flows if canopy cover is reduced by over 20%. However, their recent observations suggest that in dry forests, water yield may decrease. More research is needed. This paper was focused on tree-die off not thinning.</p></li>
+<li><p><span class="citation" data-cites="carroll_evaluating_2016">(<a href="#ref-carroll_evaluating_2016" role="doc-biblioref">Carroll et al. 2016</a>)</span> found a threshold hydrologic response when evaluating the thinning of a snow-dominated semi-arid Pinyon-Juniper community in the Great Basin. They found that a positive water yield in thinned plots was only observed when precipitation exceeded 400mm annually (wet years)</p></li>
+<li><p><span class="citation" data-cites="biederman_streamflow_2022">(<a href="#ref-biederman_streamflow_2022" role="doc-biblioref">Biederman et al. 2022</a>)</span> suggests that disturbance will have positive impacts on streamflow for a minimum of several years following disturbance in areas where mean annual precipitation exceeds ~500mm. “Presumably because below 500 mm, most precipitation is evaporated regardless of forest condition (Hibbert, 1979)[@]</p></li>
+<li><p><span class="citation" data-cites="zhang_response_2001">(<a href="#ref-zhang_response_2001" role="doc-biblioref">Zhang, Dawes, and Walker 2001</a>)</span> evaluated 250 worldwide catchment studies and found that the differences in ET between forested and non-forested catchments diminish in areas with annual rainfall less than 500 mm</p></li>
+</ul>
+</section>
+</section>
+<section id="thinning-decreases-et-in-some-circumstances" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="thinning-decreases-et-in-some-circumstances"><span class="header-section-number">1.3</span> thinning decreases ET in some circumstances</h3>
+<ul>
+<li><p>Reductions of canopy cover can increase ET of existing trees, and solar radiation increases ET <a href="Chen%20et%20al.,%202005;%20Bennett%20et%20al.,%202018">@biederman_recent_2015</a></p></li>
+<li><p>Decreases in post-disturbance ET may be offset by increased soil evaporation, increasing net ET (Reed et al., 2016)</p></li>
+<li><p><span class="citation" data-cites="goeking_forests_2020">(<a href="#ref-goeking_forests_2020" role="doc-biblioref">Goeking and Tarboton 2020</a>)</span> reviewed the hydrologic response of stand-replacing and non-stand-replacing disturbances and found that post-disturbance streamflow may increase, not change, or even decrease. Non-stand replacing fires—because of increased evaporation from higher sub-canopy radiation and increased transpiration from rapid post-disturbance growth can reduce water availability in some cases.</p></li>
+</ul>
+</section>
+</section>
+<section id="sec-data-methods" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="sec-data-methods"><span class="header-section-number">2</span> Data &amp; Methods</h2>
+<section id="weighted-suitability-workflow" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="weighted-suitability-workflow"><span class="header-section-number">2.1</span> Weighted Suitability Workflow</h3>
+<section id="define" class="level4" data-number="2.1.1">
+<h4 data-number="2.1.1" class="anchored" data-anchor-id="define"><span class="header-section-number">2.1.1</span> Define</h4>
+<blockquote class="blockquote">
+<p>“define the goal, supporting criteria, and evaluation metrics for the weighted suitability model.”</p>
+</blockquote>
+<p><strong>Here we define the goal of this suitability map–to locate areas on the Mogollon Rim Ranger District in the Coconino National Forest where thinning may increase groundwater recharge based on modeling of criteria found in the literature quantifying the impact of thinning on water yield in Regional studies of Semi-arid forests.</strong></p>
+</section>
+<section id="suitability-criteria" class="level4" data-number="2.1.2">
+<h4 data-number="2.1.2" class="anchored" data-anchor-id="suitability-criteria"><span class="header-section-number">2.1.2</span> Suitability Criteria</h4>
+<section id="aspect" class="level5" data-number="2.1.2.1">
+<h5 data-number="2.1.2.1" class="anchored" data-anchor-id="aspect"><span class="header-section-number">2.1.2.1</span> Aspect</h5>
+<p>Aspect has a large impact on solar radiation.</p>
+<blockquote class="blockquote">
+<p>Closer to 0 or 360 is desired, low suitability scores for closeness</p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Aspect_suitability.PNG" class="img-fluid figure-img"></p>
+<figcaption>Screenshot of Transfer function for Aspect Suitability</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="slope" class="level5" data-number="2.1.2.2">
+<h5 data-number="2.1.2.2" class="anchored" data-anchor-id="slope"><span class="header-section-number">2.1.2.2</span> Slope</h5>
+<p>Higher slopes are less suitable because thinning is both more expensive and more precipitation will end up as runoff.</p>
+<blockquote class="blockquote">
+<p>Lower slopes have higher suitability scores</p>
+</blockquote>
+<p><img src="images/Slope_suitability.PNG" class="img-fluid"></p>
+<hr>
+</section>
+<section id="precipitation" class="level5" data-number="2.1.2.3">
+<h5 data-number="2.1.2.3" class="anchored" data-anchor-id="precipitation"><span class="header-section-number">2.1.2.3</span> Precipitation</h5>
+<blockquote class="blockquote">
+<p>Mean annual precipitation must be higher than 500mm 1990 - 2020 Max precipitation must be higher than 500mm annually from 1990 - 2020</p>
+</blockquote>
+<p><img src="images/Precipitation_suitability.PNG" class="img-fluid"></p>
+<hr>
+</section>
+<section id="vegetation-characteristics" class="level5" data-number="2.1.2.4">
+<h5 data-number="2.1.2.4" class="anchored" data-anchor-id="vegetation-characteristics"><span class="header-section-number">2.1.2.4</span> <strong>Vegetation Characteristics</strong></h5>
+<p>higher vegetation density, when thinned will yield more water, focus on areas of high vegetation density and high departure from historic conditions.</p>
+<blockquote class="blockquote">
+<p><strong>NLCD 2021 Total Canopy Cover (% Cover)</strong></p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Canopy cover % below 30 were considered low suitability (1) while increases in canopy cover about 30% increase in suitability.</p>
+</blockquote>
+<p><img src="images/CanopyCover_suitability.PNG" class="img-fluid"></p>
+<blockquote class="blockquote">
+<p><strong>Landfire 2022 Vegetation Condition Class</strong> 3rd update to the 2016 remap.</p>
+</blockquote>
+<p>Variation from modeled historic conditions. Forests that have deviated significantly from their modeled historic conditions are more suitable for thinning than forests that have not deviated from their historic condition.</p>
+<blockquote class="blockquote">
+<p>Vegetation Condition Class (VCC) represents a simple categorization of the associated Vegetation Departure (VDep) and is a derivative of the VDep layer. It indicates the general level to which current vegetation differs from the estimated modeled vegetation based on past reference conditions. VDep and VCC are based upon methods originally described in the Inter-agency Fire Regime Condition Class Guidebook but are not identical to those methods. They should not be considered as a replacement data set. Full descriptions of the techniques used can be found in the VDep product description. Note that the LANDFIRE (LF) team feels it is very important for users to review the VDep methods before comparing VDep or VCC values across LF versions. <a href="https://www.landfire.gov/vegetation/vcc">info</a> <a href="https://www.landfire.gov/sites/default/files/DataDictionary/LF2022/LF22_VCCADD_230.pdf">PDF</a></p>
+</blockquote>
+<p><img src="images/VCC_suitability.PNG" class="img-fluid"></p>
+<hr>
+</section>
+<section id="soil-hydrologic-conditions" class="level5" data-number="2.1.2.5">
+<h5 data-number="2.1.2.5" class="anchored" data-anchor-id="soil-hydrologic-conditions"><span class="header-section-number">2.1.2.5</span> Soil Hydrologic Conditions</h5>
+<p>Soil types A,B,C,D are mapped for the USA, There are no A soil types in the study area, so they were given the following suitability values</p>
+<p>B = 10 out of 10 C = 8 out of 10 D = 3 out of 10</p>
+<p><img src="images/SoilHydrologicGroup_suitability.PNG" class="img-fluid"></p>
+</section>
+</section>
+</section>
+</section>
+<section id="preliminary-results" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="preliminary-results"><span class="header-section-number">3</span> Preliminary Results</h2>
+<section id="weighting" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="weighting"><span class="header-section-number">3.1</span> Weighting</h3>
+<p>Tree Canopy Cover = 20% Vegetation Condition Class = 20% Slope = 20% Aspect = 20% Max Precipitation = 15% Soil Hydrologic Group = 5%</p>
+</section>
+<section id="overall-suitability" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="overall-suitability"><span class="header-section-number">3.2</span> Overall Suitability</h3>
+<p><img src="images/PreliminarySuitabilityMap.PNG" class="img-fluid"></p>
+</section>
+</section>
+<section id="acknowledgments" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="acknowledgments"><span class="header-section-number">4</span> Acknowledgments</h2>
+<p>Phasellus interdum tincidunt ex, a euismod massa pulvinar at. Ut fringilla ut nisi nec volutpat. Morbi imperdiet congue tincidunt. Vivamus eget rutrum purus. Etiam et pretium justo. Donec et egestas sem. Donec molestie ex sit amet viverra egestas. Nullam justo nulla, fringilla at iaculis in, posuere non mauris. Ut eget imperdiet elit.</p>
+</section>
+<section id="open-research" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="open-research"><span class="header-section-number">5</span> Open research</h2>
+<p>Phasellus interdum tincidunt ex, a euismod massa pulvinar at. Ut fringilla ut nisi nec volutpat. Morbi imperdiet congue tincidunt. Vivamus eget rutrum purus. Etiam et pretium justo. Donec et egestas sem. Donec molestie ex sit amet viverra egestas. Nullam justo nulla, fringilla at iaculis in, posuere non mauris. Ut eget imperdiet elit.</p>
+</section>
+<section id="references" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-adams_ecohydrological_2012" class="csl-entry" role="listitem">
+Adams, Henry D., Charles H. Luce, David D. Breshears, Craig D. Allen, Markus Weiler, V. Cody Hale, Alistair M. S. Smith, and Travis E. Huxman. 2012. <span>“Ecohydrological Consequences of Drought‐ and Infestation‐ Triggered Tree Die‐off: Insights and Hypotheses.”</span> <em>Ecohydrology</em> 5 (2): 145–59. <a href="https://doi.org/10.1002/eco.233">https://doi.org/10.1002/eco.233</a>.
+</div>
+<div id="ref-allen_ecological_2002" class="csl-entry" role="listitem">
+Allen, Craig D., Melissa Savage, Donald A. Falk, Kieran F. Suckling, Thomas W. Swetnam, Todd Schulke, Peter B. Stacey, Penelope Morgan, Martos Hoffman, and Jon T. Klingel. 2002. <span>“Ecological Restoration of Southwestern Ponderosa Pine Ecosystems: A Broad Perspective.”</span> <em>Ecological Applications</em> 12 (5): 1418–33. <a href="https://doi.org/10.1890/1051-0761(2002)012[1418:EROSPP]2.0.CO;2">https://doi.org/10.1890/1051-0761(2002)012[1418:EROSPP]2.0.CO;2</a>.
+</div>
+<div id="ref-baker_effects_1986" class="csl-entry" role="listitem">
+Baker, Malchus B. 1986. <span>“Effects of <span>Ponderosa</span> <span>Pine</span> <span>Treatments</span> on <span>Water</span> <span>Yield</span> in <span>Arizona</span>.”</span> <em>Water Resources Research</em> 22 (1): 67–73. <a href="https://doi.org/10.1029/WR022i001p00067">https://doi.org/10.1029/WR022i001p00067</a>.
+</div>
+<div id="ref-belmonte_uav-based_2021" class="csl-entry" role="listitem">
+Belmonte, Adam, Temuulen Sankey, Joel Biederman, John Bradford, Scott Goetz, and Thomas Kolb. 2021. <span>“<span>UAV</span>-<span>Based</span> <span>Estimate</span> of <span>Snow</span> <span>Cover</span> <span>Dynamics</span>: <span>Optimizing</span> <span>Semi</span>-<span>Arid</span> <span>Forest</span> <span>Structure</span> for <span>Snow</span> <span>Persistence</span>.”</span> <em>Remote Sensing</em> 13 (5): 1036. <a href="https://doi.org/10.3390/rs13051036">https://doi.org/10.3390/rs13051036</a>.
+</div>
+<div id="ref-belmonte_soil_2022" class="csl-entry" role="listitem">
+Belmonte, Adam, Temuulen Ts. Sankey, Joel Biederman, John B. Bradford, and Thomas Kolb. 2022. <span>“Soil Moisture Response to Seasonal Drought Conditions and Post‐thinning Forest Structure.”</span> <em>Ecohydrology</em> 15 (5): e2406. <a href="https://doi.org/10.1002/eco.2406">https://doi.org/10.1002/eco.2406</a>.
+</div>
+<div id="ref-bennett_concurrent_2021" class="csl-entry" role="listitem">
+Bennett, Katrina E., Carl Talsma, and Riccardo Boero. 2021. <span>“Concurrent <span>Changes</span> in <span>Extreme</span> <span>Hydroclimate</span> <span>Events</span> in the <span>Colorado</span> <span>River</span> <span>Basin</span>.”</span> <em>Water</em> 13 (7): 978. <a href="https://doi.org/10.3390/w13070978">https://doi.org/10.3390/w13070978</a>.
+</div>
+<div id="ref-berner_tree_2017" class="csl-entry" role="listitem">
+Berner, Logan T, Beverly E Law, Arjan J H Meddens, and Jeffrey A Hicke. 2017. <span>“Tree Mortality from Fires, Bark Beetles, and Timber Harvest During a Hot and Dry Decade in the Western <span>United</span> <span>States</span> (2003–2012).”</span> <em>Environmental Research Letters</em> 12 (6): 065005. <a href="https://doi.org/10.1088/1748-9326/aa6f94">https://doi.org/10.1088/1748-9326/aa6f94</a>.
+</div>
+<div id="ref-biederman_streamflow_2022" class="csl-entry" role="listitem">
+Biederman, Joel A., Marcos D. Robles, Russell L. Scott, and John F. Knowles. 2022. <span>“Streamflow <span>Response</span> to <span>Wildfire</span> <span>Differs</span> <span>With</span> <span>Season</span> and <span>Elevation</span> in <span>Adjacent</span> <span>Headwaters</span> of the <span>Lower</span> <span>Colorado</span> <span>River</span> <span>Basin</span>.”</span> <em>Water Resources Research</em> 58 (3): e2021WR030687. <a href="https://doi.org/10.1029/2021WR030687">https://doi.org/10.1029/2021WR030687</a>.
+</div>
+<div id="ref-bosch_review_1982" class="csl-entry" role="listitem">
+Bosch, J. M., and J. D. Hewlett. 1982. <span>“A Review of Catchment Experiments to Determine the Effect of Vegetation Changes on Water Yield and Evapotranspiration.”</span> <em>Journal of Hydrology</em> 55 (1-4): 3–23. <a href="https://doi.org/10.1016/0022-1694(82)90117-2">https://doi.org/10.1016/0022-1694(82)90117-2</a>.
+</div>
+<div id="ref-brown_source_2005" class="csl-entry" role="listitem">
+Brown, Thomas C, Michael T Hobbins, and Jorge A Ramirez. 2005. <span>“The <span>Source</span> of <span>Water</span> <span>Supply</span> in the <span>United</span> <span>States</span>.”</span> Discussion {Paper} RMRS-RWU-4851. Fort Collins, CO: U.S. Department of Agriculture, Forest Service, Rocky Mountain Research Station. <a href="https://www.researchgate.net/profile/Jorge-Ramirez-14/publication/266272409_The_source_of_water_supply_in_the_United_States/links/54b5fcb50cf26833efd34687/The-source-of-water-supply-in-the-United-States.pdf">https://www.researchgate.net/profile/Jorge-Ramirez-14/publication/266272409_The_source_of_water_supply_in_the_United_States/links/54b5fcb50cf26833efd34687/The-source-of-water-supply-in-the-United-States.pdf</a>.
+</div>
+<div id="ref-broxton_subseasonal_2023" class="csl-entry" role="listitem">
+Broxton, Patrick D., Willem J. D. Van Leeuwen, Bohumil M. Svoma, James Walter, and Joel A. Biederman. 2023. <span>“Subseasonal to Seasonal Streamflow Forecasting in a Semiarid Watershed.”</span> <em>JAWRA Journal of the American Water Resources Association</em> 59 (6): 1493–1510. <a href="https://doi.org/10.1111/1752-1688.13147">https://doi.org/10.1111/1752-1688.13147</a>.
+</div>
+<div id="ref-carroll_evaluating_2016" class="csl-entry" role="listitem">
+Carroll, Rosemary W. H., Justin L. Huntington, Keirith A. Snyder, Richard G. Niswonger, Charles Morton, and Tamzen K. Stringham. 2016. <span>“Evaluating Mountain Meadow Groundwater Response to <span>Pinyon</span>‐<span>Juniper</span> and Temperature in a Great Basin Watershed.”</span> <em>Ecohydrology</em> 10 (1): e1792. <a href="https://doi.org/10.1002/eco.1792">https://doi.org/10.1002/eco.1792</a>.
+</div>
+<div id="ref-covington_southwestern_1994" class="csl-entry" role="listitem">
+Covington, W. W, and Margaret M Moore. 1994. <span>“Southwestern Ponderosa Pine Forest Structure: Changes Since <span>Euro</span>-<span>American</span> Settlement.”</span> <em>Journal of Forestry.</em> 92: 39–47.
+</div>
+<div id="ref-davis_wildfires_2019" class="csl-entry" role="listitem">
+Davis, Kimberley T., Solomon Z. Dobrowski, Philip E. Higuera, Zachary A. Holden, Thomas T. Veblen, Monica T. Rother, Sean A. Parks, Anna Sala, and Marco P. Maneta. 2019. <span>“Wildfires and Climate Change Push Low-Elevation Forests Across a Critical Climate Threshold for Tree Regeneration.”</span> <em>Proceedings of the National Academy of Sciences</em> 116 (13): 6193–98. <a href="https://doi.org/10.1073/pnas.1815107116">https://doi.org/10.1073/pnas.1815107116</a>.
+</div>
+<div id="ref-del_campo_effectiveness_2019" class="csl-entry" role="listitem">
+Del Campo, Antonio D., María González-Sanchis, Antonio J. Molina, Alberto García-Prats, Carlos J. Ceacero, and Inmaculada Bautista. 2019. <span>“Effectiveness of Water-Oriented Thinning in Two Semiarid Forests: <span>The</span> Redistribution of Increased Net Rainfall into Soil Water, Drainage and Runoff.”</span> <em>Forest Ecology and Management</em> 438 (April): 163–75. <a href="https://doi.org/10.1016/j.foreco.2019.02.020">https://doi.org/10.1016/j.foreco.2019.02.020</a>.
+</div>
+<div id="ref-del_campo_global_2022" class="csl-entry" role="listitem">
+Del Campo, Antonio D., Kyoichi Otsuki, Yusuf Serengil, Juan A. Blanco, Rasoul Yousefpour, and Xiaohua Wei. 2022. <span>“A Global Synthesis on the Effects of Thinning on Hydrological Processes: <span>Implications</span> for Forest Management.”</span> <em>Forest Ecology and Management</em> 519 (September): 120324. <a href="https://doi.org/10.1016/j.foreco.2022.120324">https://doi.org/10.1016/j.foreco.2022.120324</a>.
+</div>
+<div id="ref-donager_integrating_2021" class="csl-entry" role="listitem">
+Donager, Jonathon, Temuulen Ts. Sankey, Andrew J. Sánchez Meador, Joel B. Sankey, and Abraham Springer. 2021. <span>“Integrating Airborne and Mobile Lidar Data with <span>UAV</span> Photogrammetry for Rapid Assessment of Changing Forest Snow Depth and Cover.”</span> <em>Science of Remote Sensing</em> 4 (December): 100029. <a href="https://doi.org/10.1016/j.srs.2021.100029">https://doi.org/10.1016/j.srs.2021.100029</a>.
+</div>
+<div id="ref-dore_recovery_2012" class="csl-entry" role="listitem">
+Dore, Sabina, Mario Montes‐Helu, Stephen C. Hart, Bruce A. Hungate, George W. Koch, John B. Moon, Alex J. Finkral, and Thomas E. Kolb. 2012. <span>“Recovery of Ponderosa Pine Ecosystem Carbon and Water Fluxes from Thinning and Stand‐replacing Fire.”</span> <em>Global Change Biology</em> 18 (10): 3171–85. <a href="https://doi.org/10.1111/j.1365-2486.2012.02775.x">https://doi.org/10.1111/j.1365-2486.2012.02775.x</a>.
+</div>
+<div id="ref-dwivedi_how_2024" class="csl-entry" role="listitem">
+Dwivedi, Ravindra, Joel A. Biederman, Patrick D. Broxton, Jessie K. Pearl, Kangsan Lee, Bohumil M. Svoma, Willem J. D. Van Leeuwen, and Marcos D. Robles. 2024. <span>“How Three-Dimensional Forest Structure Regulates the Amount and Timing of Snowmelt Across a Climatic Gradient of Snow Persistence.”</span> <em>Frontiers in Water</em> 6 (May): 1374961. <a href="https://doi.org/10.3389/frwa.2024.1374961">https://doi.org/10.3389/frwa.2024.1374961</a>.
+</div>
+<div id="ref-goeking_forests_2020" class="csl-entry" role="listitem">
+Goeking, Sara A, and David G Tarboton. 2020. <span>“Forests and <span>Water</span> <span>Yield</span>: <span>A</span> <span>Synthesis</span> of <span>Disturbance</span> <span>Effects</span> on <span>Streamflow</span> and <span>Snowpack</span> in <span>Western</span> <span>Coniferous</span> <span>Forests</span>.”</span> <em>Journal of Forestry</em> 118 (2): 172–92. <a href="https://doi.org/10.1093/jofore/fvz069">https://doi.org/10.1093/jofore/fvz069</a>.
+</div>
+<div id="ref-gottfried_moderate_1991" class="csl-entry" role="listitem">
+Gottfried, Gerald J. 1991. <span>“Moderate Timber Harvesting Increases Water Yields from an <span>Arizona</span> <span>Mixed</span> <span>Conifer</span> <span>Watershed</span>.”</span> <em>JAWRA Journal of the American Water Resources Association</em> 27 (3): 537–46. <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1752-1688.1991.tb01454.x">https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1752-1688.1991.tb01454.x</a>.
+</div>
+<div id="ref-ha_evapotranspiration_2015" class="csl-entry" role="listitem">
+Ha, Wonsook, Thomas E. Kolb, Abraham E. Springer, Sabina Dore, Frances C. O’Donnell, Rodolfo Martinez Morales, Sharon Masek Lopez, and George W. Koch. 2015. <span>“Evapotranspiration Comparisons Between Eddy Covariance Measurements and Meteorological and Remote‐sensing‐based Models in Disturbed Ponderosa Pine Forests.”</span> <em>Ecohydrology</em> 8 (7): 1335–50. <a href="https://doi.org/10.1002/eco.1586">https://doi.org/10.1002/eco.1586</a>.
+</div>
+<div id="ref-hogan_recent_2024" class="csl-entry" role="listitem">
+Hogan, Daniel, and Jessica D. Lundquist. 2024. <span>“Recent <span>Upper</span> <span>Colorado</span> <span>River</span> <span>Streamflow</span> <span>Declines</span> <span>Driven</span> by <span>Loss</span> of <span>Spring</span> <span>Precipitation</span>.”</span> <em>Geophysical Research Letters</em> 51 (16): e2024GL109826. <a href="https://doi.org/10.1029/2024GL109826">https://doi.org/10.1029/2024GL109826</a>.
+</div>
+<div id="ref-lewis_prediction_2023" class="csl-entry" role="listitem">
+Lewis, Gabriel, Adrian Harpold, Sebastian A. Krogh, Patrick Broxton, and Patricia N. Manley. 2023. <span>“The Prediction of Uneven Snowpack Response to Forest Thinning Informs Forest Restoration in the Central <span>Sierra</span> <span>Nevada</span>.”</span> <em>Ecohydrology</em> 16 (7): e2580. <a href="https://doi.org/10.1002/eco.2580">https://doi.org/10.1002/eco.2580</a>.
+</div>
+<div id="ref-lundquist_sublimation_2024" class="csl-entry" role="listitem">
+Lundquist, Jessica D., Julie Vano, Ethan Gutmann, Daniel Hogan, Eli Schwat, Michael Haugeneder, Emilio Mateo, et al. 2024. <span>“Sublimation of <span>Snow</span>.”</span> <em>Bulletin of the American Meteorological Society</em> 105 (6): E975–90. <a href="https://doi.org/10.1175/BAMS-D-23-0191.1">https://doi.org/10.1175/BAMS-D-23-0191.1</a>.
+</div>
+<div id="ref-meko_treering_2022" class="csl-entry" role="listitem">
+Meko, David M., Connie A. Woodhouse, and Anabel G. Winitsky. 2022. <span>“Tree‐<span>Ring</span> <span>Perspectives</span> on the <span>Colorado</span> <span>River</span>: <span>Looking</span> <span>Back</span> and <span>Moving</span> <span>Forward</span>.”</span> <em>JAWRA Journal of the American Water Resources Association</em> 58 (5): 604–21. <a href="https://doi.org/10.1111/1752-1688.12989">https://doi.org/10.1111/1752-1688.12989</a>.
+</div>
+<div id="ref-moore_physical_2005" class="csl-entry" role="listitem">
+Moore, R., and S. M. Wondzell. 2005. <span>“Physical Hydrology and the Effects of Forest Harvesting in the Pacific Northwest: <span>A</span> Review.”</span> <em>Journal of the American Water Resources Association</em> 41 (4): 763–84. <a href="https://doi.org/10.1111/j.1752-1688.2005.tb04463.x">https://doi.org/10.1111/j.1752-1688.2005.tb04463.x</a>.
+</div>
+<div id="ref-moreno_modeling_2015" class="csl-entry" role="listitem">
+Moreno, H. A., H. V. Gupta, D. D. White, and D. A. Sampson. 2015. <span>“Modeling the Distributed Effects of Forest Thinning on the Long-Term Water Balance and Stream Flow Extremes for a Semi-Arid Basin in the Southwestern <span>US</span>.”</span> <a href="https://doi.org/10.5194/hessd-12-10827-2015">https://doi.org/10.5194/hessd-12-10827-2015</a>.
+</div>
+<div id="ref-odonnell_vegetation_2021" class="csl-entry" role="listitem">
+O’Donnell, Frances C., Jonathon Donager, Temuulen Sankey, Sharon Masek Lopez, and Abraham E. Springer. 2021. <span>“Vegetation Structure Controls on Snow and Soil Moisture in Restored Ponderosa Pine Forests.”</span> <em>Hydrological Processes</em> 35 (11): e14432. <a href="https://doi.org/10.1002/hyp.14432">https://doi.org/10.1002/hyp.14432</a>.
+</div>
+<div id="ref-odonnell_forest_2018" class="csl-entry" role="listitem">
+O’Donnell, Frances C., William T. Flatley, Abraham E. Springer, and Peter Z. Fulé. 2018. <span>“Forest Restoration as a Strategy to Mitigate Climate Impacts on Wildfire, Vegetation, and Water in Semiarid Forests.”</span> <em>Ecological Applications</em> 28 (6): 1459–72. <a href="https://doi.org/10.1002/eap.1746">https://doi.org/10.1002/eap.1746</a>.
+</div>
+<div id="ref-sankey_regionalscale_2021" class="csl-entry" role="listitem">
+Sankey, Temuulen, Adam Belmonte, Richard Massey, and Jackson Leonard. 2021. <span>“Regional‐scale Forest Restoration Effects on Ecosystem Resiliency to Drought: A Synthesis of Vegetation and Moisture Trends on <span>Google</span> <span>Earth</span> <span>Engine</span>.”</span> Edited by Mat Disney and Dolors Armenteras. <em>Remote Sensing in Ecology and Conservation</em> 7 (2): 259–74. <a href="https://doi.org/10.1002/rse2.186">https://doi.org/10.1002/rse2.186</a>.
+</div>
+<div id="ref-sankey_multi-scale_2015" class="csl-entry" role="listitem">
+Sankey, Temuulen, Jonathon Donald, Jason McVay, Mariah Ashley, Frances O’Donnell, Sharon Masek Lopez, and Abraham Springer. 2015. <span>“Multi-Scale Analysis of Snow Dynamics at the Southern Margin of the <span>North</span> <span>American</span> Continental Snow Distribution.”</span> <em>Remote Sensing of Environment</em> 169 (November): 307–19. <a href="https://doi.org/10.1016/j.rse.2015.08.028">https://doi.org/10.1016/j.rse.2015.08.028</a>.
+</div>
+<div id="ref-sankey_thinning_2022" class="csl-entry" role="listitem">
+Sankey, Temuulen, and Julia Tatum. 2022. <span>“Thinning Increases Forest Resiliency During Unprecedented Drought.”</span> <em>Scientific Reports</em> 12 (1): 9041. <a href="https://doi.org/10.1038/s41598-022-12982-z">https://doi.org/10.1038/s41598-022-12982-z</a>.
+</div>
+<div id="ref-schenk_impacts_2020" class="csl-entry" role="listitem">
+Schenk, Edward R., Frances O’Donnell, Abraham E. Springer, and Lawrence E. Stevens. 2020. <span>“The Impacts of Tree Stand Thinning on Groundwater Recharge in Aridland Forests.”</span> <em>Ecological Engineering</em> 145 (February): 105701. <a href="https://doi.org/10.1016/j.ecoleng.2019.105701">https://doi.org/10.1016/j.ecoleng.2019.105701</a>.
+</div>
+<div id="ref-schultz_collaborative_2012" class="csl-entry" role="listitem">
+Schultz, Courtney A., Theresa Jedd, and Ryan D. Beam. 2012. <span>“The <span>Collaborative</span> <span>Forest</span> <span>Landscape</span> <span>Restoration</span> <span>Program</span>: <span>A</span> <span>History</span> and <span>Overview</span> of the <span>First</span> <span>Projects</span>.”</span> <em>Journal of Forestry</em> 110 (7): 381–91. <a href="https://doi.org/10.5849/jof.11-082">https://doi.org/10.5849/jof.11-082</a>.
+</div>
+<div id="ref-simonit_impact_2015" class="csl-entry" role="listitem">
+Simonit, Silvio, John P. Connors, James Yoo, Ann Kinzig, and Charles Perrings. 2015. <span>“The <span>Impact</span> of <span>Forest</span> <span>Thinning</span> on the <span>Reliability</span> of <span>Water</span> <span>Supply</span> in <span>Central</span> <span>Arizona</span>.”</span> Edited by Lucas C. R. Silva. <em>PLOS ONE</em> 10 (4): e0121596. <a href="https://doi.org/10.1371/journal.pone.0121596">https://doi.org/10.1371/journal.pone.0121596</a>.
+</div>
+<div id="ref-smerdon_overview_2009" class="csl-entry" role="listitem">
+Smerdon, Brian D., Todd Redding, and Jos Beckers. 2009. <span>“An Overview of the Effects of Forest Management on Groundwater Hydrology.”</span> <em>Journal of Ecosystems and Management</em>, March. <a href="https://doi.org/10.22230/jem.2009v10n1a409">https://doi.org/10.22230/jem.2009v10n1a409</a>.
+</div>
+<div id="ref-tadych_historical_2024" class="csl-entry" role="listitem">
+Tadych, Danielle E., Matthew Ford, Bonnie G. Colby, and Laura E. Condon. 2024. <span>“Historical Patterns of Well Drilling and Groundwater Depth in <span>Arizona</span> Considering Groundwater Regulation and Surface Water Access.”</span> <em>JAWRA Journal of the American Water Resources Association</em>, October, 1752–1688.13234. <a href="https://doi.org/10.1111/1752-1688.13234">https://doi.org/10.1111/1752-1688.13234</a>.
+</div>
+<div id="ref-udall_twentyfirst_2017" class="csl-entry" role="listitem">
+Udall, Bradley, and Jonathan Overpeck. 2017. <span>“The Twenty‐first Century <span>Colorado</span> <span>River</span> Hot Drought and Implications for the Future.”</span> <em>Water Resources Research</em> 53 (3): 2404–18. <a href="https://doi.org/10.1002/2016WR019638">https://doi.org/10.1002/2016WR019638</a>.
+</div>
+<div id="ref-williams_rapid_2022" class="csl-entry" role="listitem">
+Williams, A. Park, Benjamin I. Cook, and Jason E. Smerdon. 2022. <span>“Rapid Intensification of the Emerging Southwestern <span>North</span> <span>American</span> Megadrought in 2020–2021.”</span> <em>Nature Climate Change</em> 12 (3): 232–34. <a href="https://doi.org/10.1038/s41558-022-01290-z">https://doi.org/10.1038/s41558-022-01290-z</a>.
+</div>
+<div id="ref-wyatt_semiarid_2015" class="csl-entry" role="listitem">
+Wyatt, Clint, Francis C. O’Donnell, and Abraham E. Springer. 2015. <span>“Semi‐<span>Arid</span> <span>Aquifer</span> <span>Responses</span> to <span>Forest</span> <span>Restoration</span> <span>Treatments</span> and <span>Climate</span> <span>Change</span>.”</span> <em>Ground Water</em>. <a href="https://doi.org/10.1111/gwat.12184">https://doi.org/10.1111/gwat.12184</a>.
+</div>
+<div id="ref-wyatt_estimating_2013" class="csl-entry" role="listitem">
+Wyatt, Clinton J W. 2013. <span>“Estimating Groundwater Yield Following Forest Restoration Along the <span>Mogollon</span> <span>Rim</span>.”</span> Master’s thesis, Flagstaff, AZ: Northern Arizona University. <a href="https://cdm17192.contentdm.oclc.org/digital/collection/p17192coll1/id/476/rec/3">https://cdm17192.contentdm.oclc.org/digital/collection/p17192coll1/id/476/rec/3</a>.
+</div>
+<div id="ref-yaseef_ecohydrology_2010" class="csl-entry" role="listitem">
+Yaseef, Naama Raz, Dan Yakir, Eyal Rotenberg, Gabriel Schiller, and Shabtai Cohen. 2010. <span>“Ecohydrology of a Semi‐arid Forest: Partitioning Among Water Balance Components and Its Implications for Predicted Precipitation Changes.”</span> <em>Ecohydrology</em> 3 (2): 143–54. <a href="https://doi.org/10.1002/eco.65">https://doi.org/10.1002/eco.65</a>.
+</div>
+<div id="ref-zhang_response_2001" class="csl-entry" role="listitem">
+Zhang, L., W. R. Dawes, and G. R. Walker. 2001. <span>“Response of Mean Annual Evapotranspiration to Vegetation Changes at Catchment Scale.”</span> <em>Water Resources Research</em> 37 (3): 701–8. <a href="https://doi.org/10.1029/2000WR900325">https://doi.org/10.1029/2000WR900325</a>.
+</div>
+<div id="ref-zou_streamflow_2010" class="csl-entry" role="listitem">
+Zou, Chris B., Peter F. Ffolliott, and Michael Wine. 2010. <span>“Streamflow Responses to Vegetation Manipulations Along a Gradient of Precipitation in the <span>Colorado</span> <span>River</span> <span>Basin</span>.”</span> <em>Forest Ecology and Management</em> 259 (7): 1268–76. <a href="https://doi.org/10.1016/j.foreco.2009.08.005">https://doi.org/10.1016/j.foreco.2009.08.005</a>.
+</div>
+</div>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{e_lima2024,
+  author = {E Lima, Ryan and Tsagaan Sankey, Temuulen and E Springer,
+    Abraham},
+  title = {Mapping Landscape Suitability for Forest Thinning to Reduce
+    Evapotranspiration and Enhance Groundwater Recharge in {Arizona}},
+  date = {2024-10-30},
+  langid = {en},
+  abstract = {Here, we review the literature on the effects of forest
+    thinning on water yield throughout Arizona and map areas where
+    mechanical treatment has the highest potential for increasing
+    groundwater recharge. This research synthesizes the myriad studies
+    examining the effects of forest treatment on water ield in semi-arid
+    forests and compiles a list of relevant variables. Our approach
+    combines thematic maps of average precipitation, elevation, slope,
+    aspect, forest type, forest density, depth to bedrock, and soil type
+    into a GIS suitability model to highlight areas where forest
+    treatment will most likely enhance recharge statewide.}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-e_lima2024" class="csl-entry quarto-appendix-citeas" role="listitem">
+E Lima, Ryan, Temuulen Tsagaan Sankey, and Abraham E Springer. 2024.
+<span>“Mapping Landscape Suitability for Forest Thinning to Reduce
+Evapotranspiration and Enhance Groundwater Recharge in Arizona.”</span>
+Geophysical Research Letters. October 30, 2024.
+</div></div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
