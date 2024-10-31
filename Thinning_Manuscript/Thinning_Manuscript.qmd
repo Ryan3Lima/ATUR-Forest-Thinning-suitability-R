@@ -1,5 +1,11 @@
 ---
-title: Mapping landscape suitability for forest thinning to reduce evapotranspiration and enhance groundwater recharge in Arizona 
+title: Mapping landscape suitability for forest thinning to reduce evapotranspiration and enhance groundwater recharge in Arizona
+format:
+#    docx: default
+    agu-pdf:
+        keep-tex: true
+    agu-html: default
+
 author:
   - name: Ryan E Lima 
     orcid: 0000-0002-5352-7215
@@ -42,29 +48,29 @@ key-points:
   - Rainfall runoff modeling would compliment this work
 bibliography: bibliography.bib  
 citation:
-  container-title: Geophysical Research Letters
+  container-title: Water Resources Research
 keep-tex: true
 date: last-modified
 number-sections: true
 ---
 
-## Introduction
+# Introduction
 
-Since 2000, the Colorado River Basin has been in the midst of a historic drought [@meko_treering_2022; @williams_rapid_2022]. Average temperatures increased by 0.9ºC from 2000 - 2014, and streamflow in the Colorado River has declined by 19% below the 1906-1999 average [@hogan_recent_2024; @udall_twentyfirst_2017]. Extreme hydroclimate events such as droughts, heatwaves, and floods have more than doubled in frequency since 2010 [@bennett_concurrent_2021]. Simultaneously, Arizona has experienced rapid population growth, increasing the demands on already strained water supplies. Reductions in streamflow have increased reliance on groundwater, while groundwater levels have declined for decades [@tadych_historical_2024]. Average annual precipitation in the lower Colorado River Basin is about 330mm, and only about 10mm of that precipitation becomes streamflow while much of the rest is lost to Evapotranspiration [@zou_streamflow_2010]. Sublimation has been shown to remove 10 - 90% of snowfall in the basin; the remaining snowmelt provides over 80% of streamflow to the Colorado River [@lundquist_sublimation_2024]. Therefore, small reductions in evaporative losses could have outsized impacts on available water supplies.
+Since 2000, the Colorado River Basin has been in the midst of a historic drought [@meko_treering_2022; @williams_rapid_2022]. Average temperatures increased by 0.9ºC from 2000 - 2014, and streamflow in the Colorado River has declined by 19% below the 1906-1999 average [@hogan_recent_2024; @udall_twentyfirst_2017]. Extreme hydroclimate events such as droughts, heatwaves, and floods have more than doubled in frequency since 2010 [@bennett_concurrent_2021]. Simultaneously, Arizona has experienced rapid population growth, increasing the demands on already strained water supplies. Reductions in streamflow have increased reliance on groundwater pumping, while groundwater levels have declined for decades in much of the state [@tadych_historical_2024]. Average annual precipitation in the Lower Colorado River Basin is about 330mm, and only about 10mm of that precipitation becomes streamflow while much of the rest is lost to Evapotranspiration [@zou_streamflow_2010]. Sublimation has been shown to remove 10 - 90% of snowfall in the basin; the remaining snowmelt provides over 80% of streamflow to the Colorado River [@lundquist_sublimation_2024]. Therefore, small reductions in evaporative losses could have out-sized impacts on available water supplies [@hibbert1979].
 
-Over 90% of annual precipitation in semi-arid forests can be lost to evapotranspiration [@dore_recovery_2012; @ha_evapotranspiration_2015; @yaseef_ecohydrology_2010]. Around 65% of surface water in the western states originates from forested lands, which cover just 29% of the land area [@brown_source_2005]. However, western forests are increasingly at risk from catastrophic wildfires, an emerging driver of runoff change that will increase the impact on the water supply [@williams_rapid_2022]. Forest structure has changed significantly post-Euro-American settlement due to grazing, logging, wildfire exclusion and other factors [@covington_southwestern_1994]. As a result, many forests in Arizona are overstocked relative to pre-settlement conditions, increasing the risk of catastrophic wildfire [@allen_ecological_2002]. Increasing temperatures and related droughts have contributed to extensive tree mortality from wildfire, disease, and insect infestation [@berner_tree_2017]. Warming temperatures have tripled the frequency and quadrupled the size of wildfires in recent decades [@williams_rapid_2022]. Increasing heat has pushed many low-elevation conifer forests past climate thresholds, creating conditions less suitable for tree regeneration [@davis_wildfires_2019].
+Over 90% of annual precipitation in semi-arid forests can be lost to evapotranspiration [@dore_recovery_2012; @ha_evapotranspiration_2015; @yaseef_ecohydrology_2010; @hibbert1979]. Around 65% of surface water in the western states originates from forested lands, which cover just 29% of the land area [@brown_source_2005]. However, western forests are increasingly at risk from catastrophic wildfires, an emerging driver of runoff change that will increase the impact on the water supply [@williams_rapid_2022]. Forest structure has changed significantly post-Euro-American settlement due to grazing, logging, wildfire exclusion, and other factors [@covington_southwestern_1994; @friederici2013]. As a result, many forests in Arizona are overstocked relative to pre-settlement conditions, increasing the risk of catastrophic wildfire [@allen_ecological_2002]. Rising temperatures and related droughts have contributed to extensive tree mortality from wildfire, disease, and insect infestation [@berner_tree_2017]. Warming temperatures have tripled the frequency and quadrupled the size of wildfires in recent decades [@williams_rapid_2022]. Increasing heat has pushed many low-elevation conifer forests past climate thresholds, creating conditions less suitable for tree regeneration [@davis_wildfires_2019].
 
-Landscape-scale forest restoration efforts have been planned or implemented across much of Arizona. For example, the Four Forest Restoration Initiative (4FRI) includes plans for restoration across over 2.5 million acres of Arizona's forests [@schultz_collaborative_2012]. The primary goal of restoration efforts is to reduce wildfire risk [@allen_ecological_2002]. However, numerous studies have linked forest treatments to increased water yields in semi-arid forests and have emphasized the role of forest restoration in improving hydrologic services and increasing water availability [@bosch_review_1982; @baker_effects_1986; @gottfried_moderate_1991; @smerdon_overview_2009; @zou_streamflow_2010; @wyatt_estimating_2013; @moreno_modeling_2015; @simonit_impact_2015; @wyatt_semiarid_2015; @odonnell_forest_2018; @schenk_impacts_2020]. Forest treatments such as thinning and burning can significantly impact the hydrologic cycle of forests [@del_campo_global_2022]. For example, forest thinning in Arizona has been associated with increased snow cover days [@sankey_multi-scale_2015; @belmonte_uav-based_2021; @donager_integrating_2021], greater soil moisture [@belmonte_soil_2022; @sankey_thinning_2022], and greater forest canopy moisture [@sankey_regionalscale_2021]. However, the response of forests to treatments is complex and non-linear and differs across forest types, with treatment level, and along aspect and elevational gradients [@del_campo_global_2022; @biederman_streamflow_2022; @zou_streamflow_2010; @moore_physical_2005]. This research aims to develop criteria for areas suitable for thinning to enhance groundwater recharge. It focuses primarily on regional studies that are likely the best predictor of hydrologic response to treatment [@wyatt_estimating_2013].
+Landscape-scale forest restoration efforts have been planned or implemented across much of Arizona. For example, the Four Forest Restoration Initiative (4FRI) includes plans for restoration across over 2.5 million acres of Arizona's forests [@schultz_collaborative_2012]. The primary goal of restoration efforts is to reduce wildfire risk [@allen_ecological_2002; @friederici2013]. However, numerous studies have linked forest treatments to increased water yields in semi-arid forests and have emphasized the role of forest restoration in improving hydrologic services and increasing water availability [@bosch_review_1982; @baker_effects_1986; @gottfried_moderate_1991; @smerdon_overview_2009; @zou_streamflow_2010; @wyatt_estimating_2013; @moreno_modeling_2015; @simonit_impact_2015; @wyatt_semiarid_2015; @odonnell_forest_2018; @schenk_impacts_2020; @hibbert1979]. Forest treatments such as thinning and burning can significantly impact the hydrologic cycle of forests [@del_campo_global_2022]. For example, forest thinning in Arizona has been associated with increased snow cover days [@sankey_multi-scale_2015; @belmonte_uav-based_2021; @donager_integrating_2021], greater soil moisture [@belmonte_soil_2022; @sankey_thinning_2022], and greater forest canopy moisture [@sankey_regionalscale_2021]. However, the response of forests to treatments is complex and non-linear and differs across forest types, with treatment level, and along aspect and elevational gradients [@del_campo_global_2022; @biederman_streamflow_2022; @zou_streamflow_2010; @hibbert1979; @moore_physical_2005]. Water yield can decrease with reductions in forest cover in drier forests with little topographic shading or SW aspects due to increased water use by remaining vegetation and increased snow sublimation and evaporation[@biederman_recent_2015]. This research aims to develop criteria for areas suitable for thinning to enhance groundwater recharge. It focuses primarily on regional studies, to determine suitability criteria, which are likely the best predictor of hydrologic response to treatment [@wyatt_estimating_2013].
 
-### Regional Hydrologic Responses to Treatment
+## Regional Hydrologic Responses to Treatment
 
-Several regional studies link forest treatment to changes in stand-level ecohydrology, including increased tree growth in Ponderosa Pines (**Rodman et al., 2024**), greater soil moisture and total ecosystem moisture \[\], increased drought resilience \[\], Increased snow retention, greater streamflow \[\], water table rise and increased spring flow \[\]
+Several regional studies link forest treatment to changes in stand-level ecohydrology, including increased tree growth in Ponderosa Pines (**Rodman et al., 2024**),
 
-#### Water Yield/Runoff
+### Water Yield/Runoff
 
-Several regional studies link forest treatment to increased streamflow [@dwivedi_how_2024; @biederman_streamflow_2022; @broxton_subseasonal_2023]. However, there appears to be a threshold response, with water yield increasing only in treated forests receiving over 500mm of annual precipitation or snow-dominated forests [@biederman_streamflow_2022; @carroll_evaluating_2016; @adams_ecohydrological_2012; @zou_streamflow_2010].
+Several regional studies link forest treatment to increased streamflow [@dwivedi_how_2024; @biederman_streamflow_2022; @broxton_subseasonal_2023]. However, there appears to be a threshold response, with water yield increasing only in treated forests receiving over 500mm of annual precipitation or in snow-dominated forests [@biederman_streamflow_2022; @carroll_evaluating_2016; @adams_ecohydrological_2012; @zou_streamflow_2010; @hibbert1979].
 
-#### Soil Moisture and Drought Resilience
+### Soil Moisture and Drought Resilience
 
 A synthesis of several treatment types across Northern Arizona, including thinning at various levels and prescribed burning, found that treated sites had significantly greater total ecosystem moisture, making forests more resilient to drought[@sankey_regionalscale_2021; @sankey_thinning_2022]. Treatments were shown to increase tree growth, improving resilience to drought in Ponderosa Pine forests (**Rodman et al., 2024**). Thinned Ponderosa Pine forests have higher soil moisture for two to eight years post-thinning, a result also found in semi-arid forests around the Mediterranean [@belmonte_soil_2022; @del_campo_global_2022; @odonnell_vegetation_2021; @del_campo_effectiveness_2019].
 
@@ -110,7 +116,7 @@ A synthesis of several treatment types across Northern Arizona, including thinni
 
 -   [@carroll_evaluating_2016] found a threshold hydrologic response when evaluating the thinning of a snow-dominated semi-arid Pinyon-Juniper community in the Great Basin. They found that a positive water yield in thinned plots was only observed when precipitation exceeded 400mm annually (wet years)
 
--   [@biederman_streamflow_2022] suggests that disturbance will have positive impacts on streamflow for a minimum of several years following disturbance in areas where mean annual precipitation exceeds \~500mm. "Presumably because below 500 mm, most precipitation is evaporated regardless of forest condition (Hibbert, 1979)\[\@\]
+-   [@biederman_streamflow_2022] suggests that disturbance will positively impact streamflow for a minimum of several years following disturbance in areas where mean annual precipitation exceeds \~500mm. "Presumably because below 500 mm, most precipitation is evaporated regardless of forest condition (Hibbert, 1979)\[\@\]
 
 -   [@zhang_response_2001] evaluated 250 worldwide catchment studies and found that the differences in ET between forested and non-forested catchments diminish in areas with annual rainfall less than 500 mm
 
@@ -146,7 +152,7 @@ Aspect has a large impact on solar radiation.
 
 ##### Slope
 
-Higher slopes are less suitable because thinning is both more expensive and more precipitation will end up as runoff.
+Higher slopes are less suitable because thinning is both more expensive, and more precipitation will end up as runoff.
 
 > Lower slopes have higher suitability scores
 
@@ -154,17 +160,29 @@ Higher slopes are less suitable because thinning is both more expensive and more
 
 ------------------------------------------------------------------------
 
+##### Elevation
+
+Water yield in lower elevation watersheds will be less responsive to changes in forest structure due to asynchrony between snowmelt and transpiration [@biederman2022]
+
+Winter precipitation mainly falls as snow at elevations above 1800m in Arizona [@friederici2013]
+
+------------------------------------------------------------------------
+
 ##### Precipitation
 
-> Mean annual precipitation must be higher than 500mm 1990 - 2020 Max precipitation must be higher than 500mm annually from 1990 - 2020
+> **Ideal:** Mean annual precipitation must be higher than 500mm 1990 - 2020
+>
+> **Marginal:** (benefits only expected in wet years or during some events) Max precipitation higher than 500mm but Mean annual precipitation \< 500mm
+>
+> **Unsuitable:** Max annual precipitation \< 500mm
 
 ![](images/Precipitation_suitability.PNG)
 
 ------------------------------------------------------------------------
 
-##### **Vegetation Characteristics**
+##### Vegetation Characteristics
 
-higher vegetation density, when thinned will yield more water, focus on areas of high vegetation density and high departure from historic conditions.
+Higher vegetation density, when thinned, will yield more water, so focus on areas of high vegetation density and high departure from historic conditions.
 
 > **NLCD 2021 Total Canopy Cover (% Cover)**
 
