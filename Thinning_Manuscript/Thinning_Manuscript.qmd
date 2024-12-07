@@ -74,7 +74,8 @@ abstract:
 key-points:
   - Produced suitability map of where forest thinning may reduce evaporative demand increasing water available for streamflow and recharge throughout the State of Arizona
   - Rainfall runoff modeling would compliment this work
-bibliography: bibliography.bib  
+bibliography: bibliography.bib
+csl: elsarticle.csl
 citation:
   container-title: Journal of Environmental Management
 keep-tex: true
@@ -91,9 +92,9 @@ Concurrently, western forests are at increasing risk from catastrophic wildfires
 
 Landscape-scale forest restoration efforts have been planned or implemented across much of Arizona. For example, the Four Forest Restoration Initiative (4FRI) includes plans for restoration across over 1 million hectares of Arizona's forests [@schultz_collaborative_2012]. The primary goal of restoration efforts is to reduce wildfire risk [@allen_ecological_2002; @friederici2013]. However, numerous studies have linked forest treatments to increased water yields in semi-arid forests and have emphasized the role of forest restoration in improving hydrologic services and increasing water availability [@bosch_review_1982; @baker_effects_1986; @gottfried_moderate_1991; @smerdon_overview_2009; @zou_streamflow_2010; @wyatt_estimating_2013; @moreno_modeling_2015; @simonit_impact_2015; @wyatt_semiarid_2015; @odonnell_forest_2018; @schenk_impacts_2020; @hibbert1979].
 
-The connection between forests and water supplies is well documented. Around 65% of surface water in the western states originates from forested lands, which cover just 29% of the land area [@brown_source_2005]. The average annual precipitation in the Lower Colorado River Basin is about 330 $mm$, and only about 10 $mm$ of that precipitation becomes streamflow, while much of the rest is lost to evapotranspiration [@zou_streamflow_2010]. Regional studies have found that up to 90% of annual precipitation in semi-arid forests is lost evapotranspiration [@dore_recovery_2012; @ha_evapotranspiration_2015; @yaseef_ecohydrology_2010; @hibbert1979]. Sublimation has been shown to remove 10 - 90% of snowfall in the Colorado River Basin, while the remaining snowmelt provides over 80% of streamflow to the Colorado River [@lundquist_sublimation_2024]. Over half of streamflow from the Upper Colorado River basin comes from groundwater sources primarily recharged by snowmelt [@miller2016]. Therefore, small reductions in evaporative losses could have out-sized impacts on available water supplies, particularly enhancing groundwater recharge in terrains underlain by karst lithology [@hibbert1979;@wyatt2013].
+The connection between forests and water supplies is well documented. Around 65% of surface water in the western states originates from forested lands, which cover just 29% of the land area [@brown_source_2005]. The average annual precipitation in the Lower Colorado River Basin is about 330 $mm$, and only about 10 $mm$ of that precipitation becomes streamflow, while much of the rest is lost to evapotranspiration [@zou_streamflow_2010]. Regional studies have found that up to 90% of annual precipitation in semi-arid forests is lost evapotranspiration [@dore_recovery_2012; @ha_evapotranspiration_2015; @yaseef_ecohydrology_2010; @hibbert1979]. Sublimation has been shown to remove 10 - 90% of snowfall in the Colorado River Basin, while the remaining snowmelt provides over 80% of streamflow to the Colorado River [@lundquist_sublimation_2024]. Over half of streamflow from the Upper Colorado River basin comes from groundwater sources primarily recharged by snowmelt [@miller2016]. Therefore, small reductions in evaporative losses could have out-sized impacts on available water supplies, particularly enhancing groundwater recharge in terrains underlain by karst lithology [@hibbert1979; @wyatt2013].
 
-While the connection between forest treatment and water yield is well documented, the response of forests to treatments is complex and non-linear and differs across forest types, with treatment level, and along aspect and elevational gradients [@del_campo_global_2022; @biederman_streamflow_2022; @zou_streamflow_2010; @hibbert1979; @moore_physical_2005]. Regardless of the potential for increased water yield the enhancement of groundwater recharge rarely, if ever, ranks among the primary motivations for forest treatment [@stanturf2014;@filoso2017; @allen_ecological_2002; @friederici2013]. This study examines forest restoration through the lens of groundwater recharge enhancement and identifying potential recharge zones. All else held equal, we map suitability for forest thinning with the goal of enhancing recharge. Suitability maps like these may complement (or supplement) existing frameworks for prioritizing landscape-scale forest management.
+While the connection between forest treatment and water yield is well documented, the response of forests to treatments is complex and non-linear and differs across forest types, with treatment level, and along aspect and elevational gradients [@del_campo_global_2022; @biederman_streamflow_2022; @zou_streamflow_2010; @hibbert1979; @moore_physical_2005]. Regardless of the potential for increased water yield the enhancement of groundwater recharge rarely, if ever, ranks among the primary motivations for forest treatment even among projects with the stated goal of improving watershed health [@stanturf2014; @filoso2017; @allen_ecological_2002; @friederici2013; @odonnell2016]. This study examines forest restoration through the lens of groundwater recharge enhancement and identifying potential recharge zones. All else held equal, we map suitability for forest thinning with the goal of enhancing recharge. Suitability maps like these may complement (or supplement) existing frameworks for prioritizing landscape-scale forest management.
 
 Suitability mapping, and particularly GIS-based Multi-criteria decision making (GIS-MCDM), is widely used to map potential recharge zones and areas suitable for Managed Aquifer Recharge (MAR), but to our knowledge, it has not yet been implemented to map recharge enhancement potential through forest thinning [@fathi2021; @rajashekar2023]. Pairwise comparisons were made between criteria including average precipitation, snow dominance, slope, aspect, landscape morphology, forest density, lithology, and hydrologic soil type, and the Analytic Hierarchy Process (AHP) was used as a weighting method.
 
@@ -225,23 +226,85 @@ Winter precipitation mainly falls as snow at elevations above 1800m in Arizona [
 
 ##### Vegetation Characteristics
 
-Higher vegetation density, when thinned, will yield more water, so focus on areas of high vegetation density and high departure from historic conditions.
+Reconstructions of pre-settlement ponderosa pine forests have found a range of canopy covers between 10 - 22%, with a median of 16.7% canopy cover [@huffman2012]. However, remote sensing studies of snow extent found that canopy covers of 24 - 35% yield the ideal conditions for maintaining snow cover [@sankey2015; @belmonte2021a]. Which means that restoring forests to pre-settlement canopy cover percentages may not be the ideal canopy cover for maintaining snowpack, the dominant source of groundwater recharge snow-dominant forest of Arizona.
 
-> **NLCD 2021 Total Canopy Cover (% Cover)**
+Reductions in canopy cover of at least 20% are likely required to see a meaningful decrease in evapotranspiration [@adams2012].
 
-> Canopy cover % below 30 were considered low suitability (1) while increases in canopy cover about 30% increase in suitability.
+Because thinning is costly, and soil compaction from thinning operations can adversely affect infiltration rates, we view a 20% reduction as the ideal canopy reduction to minimize cost and impact while meaningfully reducing ET. A 20% reduction in canopy cover with a starting canopy cover of 20%, yields a thinned canopy cover of 16% canopy cover, the median for pre-settlement forests, but probably on the low end for what is ideal for maintaining snowcover, therefore we consider all areas with forest cover below 21% as unsuitable.
 
-![](images/CanopyCover_suitability.PNG)
+In order to maximize snow cover while reducing the canopy cover by 20%, we consider the ideal range of final canopy cover between 24% - 35%, meaning the most suitable areas for thinning to maximize snow retention would be forests with between 30% and 44%, with declining suitability as the canopy cover deviates from that range. The function to convert canopy cover then to suitability (1-10) is shown in equation @eq-cc-suitability.
 
-> **Landfire 2022 Vegetation Condition Class** 3rd update to the 2016 remap.
+$$y =\begin{cases} 10 \cdot \left(1 - \left(\frac{x - 37}{16 - 37}\right)^2\right),& \text{if } x < 37 \text{ and } x > 16, \\10 \cdot \left(1 - \left(\frac{x - 37}{80 - 37}\right)^2\right), & \text{if } x \geq 37 \text{ and } x < 80, \\0, & \text{if } x \leq 16 \text{ or } x \geq 80.\end{cases}$$ {#eq-cc-suitability}
 
-Variation from modeled historic conditions. Forests that have deviated significantly from their modeled historic conditions are more suitable for thinning than forests that have not deviated from their historic condition.
 
-> Vegetation Condition Class (VCC) represents a simple categorization of the associated Vegetation Departure (VDep) and is a derivative of the VDep layer. It indicates the general level to which current vegetation differs from the estimated modeled vegetation based on past reference conditions. VDep and VCC are based upon methods originally described in the Inter-agency Fire Regime Condition Class Guidebook but are not identical to those methods. They should not be considered as a replacement data set. Full descriptions of the techniques used can be found in the VDep product description. Note that the LANDFIRE (LF) team feels it is very important for users to review the VDep methods before comparing VDep or VCC values across LF versions. [info](https://www.landfire.gov/vegetation/vcc) [PDF](https://www.landfire.gov/sites/default/files/DataDictionary/LF2022/LF22_VCCADD_230.pdf)
+```{r, echo=F, warning=F,message=F, results='hide'}
 
-![](images/VCC_suitability.PNG)
+library(ggplot2)
+library(gridExtra)
 
-------------------------------------------------------------------------
+# Set parameters
+reduction_percentage <- 20
+retained_fraction <- 1 - (reduction_percentage / 100)
+
+# Define initial canopy cover range (e.g., 0% to 100%)
+initial_canopy <- seq(0, 100, by = 1)
+
+# Calculate final canopy cover after reduction
+final_canopy <- initial_canopy * retained_fraction
+
+# Smooth suitability function using a polynomial
+calculate_suitability <- function(final_canopy) {
+  if (final_canopy <= 16 || final_canopy >= 80) {
+    return(0)  # Suitability is 0 outside these bounds
+  }
+  
+  # Polynomial fit: peaks at 37, decreases smoothly toward 16 and 80
+  median <- 37
+  if (final_canopy < median) {
+    return(10 * (1 - ((final_canopy - median) / (16 - median))^2))  # Left-hand curve
+  } else {
+    return(10 * (1 - ((final_canopy - median) / (80 - median))^2))  # Right-hand curve
+  }
+}
+
+# Apply suitability function to final canopy cover
+suitability <- sapply(final_canopy, calculate_suitability)
+
+# Prepare data for plotting
+data1 <- data.frame(Initial = initial_canopy, Final = final_canopy)
+data2 <- data.frame(Final = final_canopy, Suitability = suitability)
+
+# Plot 1: Initial canopy vs. final canopy
+plot1 <- ggplot(data1, aes(x = Initial, y = Final)) +
+  geom_line(color = 'black', size = 1.2) +
+  labs(
+    title = 'Initial vs. Final Canopy Cover with 20% reduction',
+    x = 'Initial Canopy Cover (%)',
+    y = 'Final Canopy Cover (%)'
+  ) +
+  theme_minimal(base_family = "serif") +  # Use a serif font (e.g., Times New Roman)
+  theme(plot.title = element_text(hjust = 0.5, size = 14))
+
+# Plot 2: Suitability vs. final canopy
+plot2 <- ggplot(data2, aes(x = Final, y = Suitability)) +
+  geom_line(color = 'black', size = 1.2) +
+  labs(
+    title = 'Suitability vs. Final Canopy Cover',
+    x = 'Final Canopy Cover (%)',
+    y = 'Suitability (1-10)'
+  ) +
+  theme_minimal(base_family = "serif") +  # Use a serif font (e.g., Times New Roman)
+  theme(plot.title = element_text(hjust = 0.5, size = 14))
+
+# Combine the plots into one figure
+combined_plot <- grid.arrange(plot1, plot2, ncol = 1)
+
+# Display the combined plot
+print(combined_plot)
+```
+
+
+> **Dataset: NLCD 2021 Total Canopy Cover (% Cover)**
 
 ##### Soil Hydrologic Conditions
 

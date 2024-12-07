@@ -293,8 +293,9 @@ along aspect and elevational gradients
 \citep{del_campo_global_2022, biederman_streamflow_2022, zou_streamflow_2010, hibbert1979, moore_physical_2005}.
 Regardless of the potential for increased water yield the enhancement of
 groundwater recharge rarely, if ever, ranks among the primary
-motivations for forest treatment
-\citep{stanturf2014, filoso2017, allen_ecological_2002, friederici2013}.
+motivations for forest treatment even among projects with the stated
+goal of improving watershed health
+\citep{stanturf2014, filoso2017, allen_ecological_2002, friederici2013, odonnell2016}.
 This study examines forest restoration through the lens of groundwater
 recharge enhancement and identifying potential recharge zones. All else
 held equal, we map suitability for forest thinning with the goal of
@@ -598,50 +599,42 @@ precipitation \textless{} 500mm
 \subparagraph{Vegetation
 Characteristics}\label{vegetation-characteristics}
 
-Higher vegetation density, when thinned, will yield more water, so focus
-on areas of high vegetation density and high departure from historic
-conditions.
+Reconstructions of pre-settlement ponderosa pine forests have found a
+range of canopy covers between 10 - 22\%, with a median of 16.7\% canopy
+cover \citep{huffman2012}. However, remote sensing studies of snow
+extent found that canopy covers of 24 - 35\% yield the ideal conditions
+for maintaining snow cover \citep{sankey2015, belmonte2021a}. Which
+means that restoring forests to pre-settlement canopy cover percentages
+may not be the ideal canopy cover for maintaining snowpack, the dominant
+source of groundwater recharge snow-dominant forest of Arizona.
+
+Reductions in canopy cover of at least 20\% are likely required to see a
+meaningful decrease in evapotranspiration \citep{adams2012}.
+
+Because thinning is costly, and soil compaction from thinning operations
+can adversely affect infiltration rates, we view a 20\% reduction as the
+ideal canopy reduction to minimize cost and impact while meaningfully
+reducing ET. A 20\% reduction in canopy cover with a starting canopy
+cover of 20\%, yields a thinned canopy cover of 16\% canopy cover, the
+median for pre-settlement forests, but probably on the low end for what
+is ideal for maintaining snowcover, therefore we consider all areas with
+forest cover below 21\% as unsuitable.
+
+In order to maximize snow cover while reducing the canopy cover by 20\%,
+we consider the ideal range of final canopy cover between 24\% - 35\%,
+meaning the most suitable areas for thinning to maximize snow retention
+would be forests with between 30\% and 44\%, with declining suitability
+as the canopy cover deviates from that range. The function to convert
+canopy cover then to suitability (1-10) is shown in equation
+Equation~\ref{eq-cc-suitability}.
+
+\begin{equation}\phantomsection\label{eq-cc-suitability}{y =\begin{cases} 10 \cdot \left(1 - \left(\frac{x - 37}{16 - 37}\right)^2\right),& \text{if } x < 37 \text{ and } x > 16, \\10 \cdot \left(1 - \left(\frac{x - 37}{80 - 37}\right)^2\right), & \text{if } x \geq 37 \text{ and } x < 80, \\0, & \text{if } x \leq 16 \text{ or } x \geq 80.\end{cases}}\end{equation}
+
+\includegraphics{Thinning_Manuscript_files/figure-pdf/unnamed-chunk-1-1.pdf}
 
 \begin{quote}
-\textbf{NLCD 2021 Total Canopy Cover (\% Cover)}
+\textbf{Dataset: NLCD 2021 Total Canopy Cover (\% Cover)}
 \end{quote}
-
-\begin{quote}
-Canopy cover \% below 30 were considered low suitability (1) while
-increases in canopy cover about 30\% increase in suitability.
-\end{quote}
-
-\includegraphics{images/CanopyCover_suitability.PNG}
-
-\begin{quote}
-\textbf{Landfire 2022 Vegetation Condition Class} 3rd update to the 2016
-remap.
-\end{quote}
-
-Variation from modeled historic conditions. Forests that have deviated
-significantly from their modeled historic conditions are more suitable
-for thinning than forests that have not deviated from their historic
-condition.
-
-\begin{quote}
-Vegetation Condition Class (VCC) represents a simple categorization of
-the associated Vegetation Departure (VDep) and is a derivative of the
-VDep layer. It indicates the general level to which current vegetation
-differs from the estimated modeled vegetation based on past reference
-conditions. VDep and VCC are based upon methods originally described in
-the Inter-agency Fire Regime Condition Class Guidebook but are not
-identical to those methods. They should not be considered as a
-replacement data set. Full descriptions of the techniques used can be
-found in the VDep product description. Note that the LANDFIRE (LF) team
-feels it is very important for users to review the VDep methods before
-comparing VDep or VCC values across LF versions.
-\href{https://www.landfire.gov/vegetation/vcc}{info}
-\href{https://www.landfire.gov/sites/default/files/DataDictionary/LF2022/LF22_VCCADD_230.pdf}{PDF}
-\end{quote}
-
-\includegraphics{images/VCC_suitability.PNG}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \subparagraph{Soil Hydrologic
 Conditions}\label{soil-hydrologic-conditions}
@@ -683,10 +676,10 @@ fringilla at iaculis in, posuere non mauris. Ut eget imperdiet elit.
 \subsection*{References}\label{references}
 \addcontentsline{toc}{subsection}{References}
 
-\renewcommand{\bibsection}{}
-\bibliography{bibliography.bib}
+%bib-loc-124C8010
 
 
+  \bibliography{bibliography.bib}
 
 
 \end{document}
