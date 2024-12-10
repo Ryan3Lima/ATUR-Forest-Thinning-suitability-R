@@ -118,6 +118,8 @@ Suitability mapping, and particularly GIS-based Multi-criteria decision making (
 
 # Methods
 
+We used the ArcGIS Pro Suitability Modeler within the Spatial Analysis toolbox to created a weighted suitability model. The first step involved screening out unsuitable areas including non-forested land covers, wilderness areas, and areas with maximum annual precipitation below 500 $mm$. After this initial screening process thematic maps were created using criteria known to affect water yield in thinned forests.
+
 ## Study Area
 
 The Coconino National Forest is located in Northern Arizona near the cities of Flagstaff and Sedona. It ranges in elevation from 790 $m$ near the Verde River to 3,851 $m$ at the summit of Humphreys Peak. It is located within the largest contiguous ponderosa pine (*Pinus ponderosa*) forest in North America. Ponderosa pine covers roughly 40% of the national forest an area of about 340,000 hectares, primarily between 2000 - 2400 $m$ in elevation.

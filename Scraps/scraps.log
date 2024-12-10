@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 23.10) (preloaded format=xelatex 2024.6.7)  10 DEC 2024 13:06
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 23.10) (preloaded format=xelatex 2024.6.7)  10 DEC 2024 16:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -84,7 +84,8 @@ File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
 \@enLab=\toks19
 \@sep=\skip50
 \@@sep=\skip51
-(C:\Users\rl587\AppData\Local\Programs\MiKTeX\tex/latex/natbib\natbib.sty
+(scraps.spl) (C:\Users\rl587\AppData\Local\Programs\MiKTeX\tex/latex/natbib\nat
+bib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip52
 \bibsep=\skip53
@@ -1158,10 +1159,10 @@ LaTeX Warning: File `images/Aspect_suitability.PNG' not found on input line 400
 l.400 ...degraphics{images/Aspect_suitability.PNG}
                                                    
 Here is how much of TeX's memory you used:
- 21134 strings out of 410378
- 379825 string characters out of 5788031
+ 21137 strings out of 410378
+ 379868 string characters out of 5788031
  1926416 words of memory out of 5000000
- 42218 multiletter control sequences out of 15000+600000
+ 42219 multiletter control sequences out of 15000+600000
  563519 words of font info for 78 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  90i,9n,120p,1005b,413s stack positions out of 10000i,1000n,20000p,200000b,200000s
