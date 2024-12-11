@@ -222,20 +222,23 @@ yield \sep groundwater recharge \sep GIS-MCDM \sep
     
 \section{Introduction}\label{introduction}
 
-Warming associated with anthropocentric climate change has increased the
-number of extreme hydroclimate events in the Colorado River Basin.
-Droughts, heatwaves, and floods have more than doubled in frequency
-since 2010 \citep{bennett_concurrent_2021}.Since 2000, the Colorado
-River Basin has been in the midst of a historic drought
+Warming associated with anthropogenic climate change has led to a
+doubling in the frequency of extreme hydroclimate events in the Colorado
+River Basin since 2010, including droughts, heatwaves, and floods
+\citep{bennett_concurrent_2021}. Since 2000, the Colorado River Basin
+has been in the midst of a historic drought
 \citep{meko_treering_2022, williams_rapid_2022}. During that time,
 streamflow in the Colorado River has declined by 19\% relative to the
-1906-1999 average
-\citep{hogan_recent_2024, udall_twentyfirst_2017}.Rapid population
-growth in the Southwest and Arizona, in particular, is increasing the
-demands on already strained water supplies in the State. Reductions in
-streamflow have increased reliance on groundwater pumping, while
-groundwater levels have declined for decades in many groundwater basins
-across Arizona \citep{tadych_historical_2024}.
+1906-1999 average \citep{hogan_recent_2024, udall_twentyfirst_2017}.
+Rapid population growth in the Southwest and Arizona, in particular, is
+increasing the demands on already strained water supplies in the State.
+Reductions in streamflow have increased reliance on groundwater pumping,
+resulting in groundwater declines across much of the State
+\citep{tadych_historical_2024}. Analyses of regional gravity data has
+suggested that the rate of groundwater loss may far exceed the rate of
+depletion of Lake Powell and Lake Mead and that groundwater may account
+for a larger portion of water use than previously thought
+\citep{castle2014}.
 
 Concurrently, the risk of catastrophic wildfires is increasing in
 Western forests--an emerging driver of runoff change that will increase
@@ -244,7 +247,7 @@ structure in Northern Arizona and New Mexico has changed significantly
 post-Euro-American settlement. Many forests are overstocked relative to
 pre-settlement conditions due to grazing, logging, and wildfire
 exclusion \citep{covington_southwestern_1994, friederici2013}. These
-changes have increased the risk of catastrophic wildfire
+changes have increased the risk of catastrophic wildfires
 \citep{allen_ecological_2002}. Rising temperatures and related droughts
 have contributed to extensive tree mortality from wildfire, disease, and
 insect infestation \citep{berner_tree_2017}. Warming temperatures have
@@ -277,25 +280,33 @@ along aspect and elevational gradients
 \citep{del_campo_global_2022, biederman_streamflow_2022, zou_streamflow_2010, hibbert1979, moore_physical_2005}.
 Regardless of the potential for increased water yield, the enhancement
 of groundwater recharge rarely, if ever, ranks among the primary
-motivations for forest treatment even among projects with the stated
+motivations for forest treatment, even among projects with the stated
 goal of improving watershed health
 \citep{stanturf2014, filoso2017, allen_ecological_2002, friederici2013, odonnell2016}.
-This study examines forest restoration through the lens of groundwater
-recharge enhancement and aimes to identify potential recharge zones. We
-map suitability for forest thinning with the goal of enhancing recharge.
-Suitability maps like these may complement (or supplement) existing
-frameworks for prioritizing landscape-scale forest management.
+
+Forest health and water security are intimately linked. About 66\% of
+the water supply in 11 western states comes from Forested Lands
+\citep{brown_source_2005}. Despite this, the management of lands and
+waters is still largely compartmentalized. The Western Water Network
+(WWN) identified the need to promote better and faster collaboration
+between researchers, managers, educators, industry, and stakeholders
+across the West \citep{hansen2024}. This study examines forest
+restoration through the lens of groundwater recharge enhancement and
+aims to identify potential recharge zones. We map suitability for forest
+thinning with the goal of enhancing recharge. Suitability maps like
+these may complement (or supplement) existing frameworks for
+prioritizing landscape-scale forest management and managing lands and
+water jointly.
 
 Suitability mapping, and particularly GIS-based Multi-criteria decision
 making (GIS-MCDM), is widely used to map potential recharge zones and
 areas suitable for Managed Aquifer Recharge (MAR), but to our knowledge,
-it has not yet been implemented to map incidental recharge, or recharge
+it has not yet been implemented to map incidental recharge or recharge
 enhancement potential, from forest thinning
-\citep{fathi2021, rajashekar2023}. Pairwise comparisons were made
-between criteria including forest basal area, canopy cover, average
+\citep{fathi2021, rajashekar2023, rahman2012}. Pairwise comparisons were
+made between criteria including forest basal area, canopy cover, average
 precipitation, snow dominance, slope, aspect, landscape morphology,
-forest density, lithology, and hydrologic soil type, and the Analytic
-Hierarchy Process (AHP) was used as a weighting method.
+forest density, lithology, and hydrologic soil type.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -309,7 +320,7 @@ Hierarchy Process (AHP) was used as a weighting method.
   \item
     Reduced canopy interception, increased snow retention
   \item
-    decreases ET - TEKI fort valley research
+    decreases ET - TEKI Fort Valley research
   \item
     Increases Soil Moisture
   \item
@@ -320,7 +331,7 @@ Hierarchy Process (AHP) was used as a weighting method.
 
   \begin{itemize}
   \item
-    Low Elevations - less water yield in low elevation forests in the
+    Low Elevations - less water yield in low-elevation forests in the
     Salt-Verde System \citep{biederman_streamflow_2022}
   \item
     Sunny Aspects - increased sublimation with decreased canopy cover
@@ -330,57 +341,70 @@ Hierarchy Process (AHP) was used as a weighting method.
 
 \section{Methods}\label{methods}
 
-We used the ArcGIS Pro Suitability Modeler within the Spatial Analysis
-toolbox to created a weighted suitability model. The first step involved
-screening out unsuitable areas including non-forested land covers,
-wilderness areas, and areas with maximum annual precipitation below 500
-\(mm\). After this initial screening process thematic maps were created
-using criteria known to affect water yield in thinned forests.
+We used the Suitability Modeler within the Spatial Analysis toolbox in
+ArcGIS Pro 3.4.0 to create a weighted suitability model. The first step
+involved screening out unsuitable areas, including non-forested land
+covers, wilderness areas, and areas with maximum annual precipitation
+below 500 mm. After this initial screening process, thematic maps were
+created using criteria known to affect water yield in thinned forests.
 
 \subsection{Study Area}\label{study-area}
 
-The Coconino National Forest is located in Northern Arizona near the
-cities of Flagstaff and Sedona. It ranges in elevation from 790 \(m\)
-near the Verde River to 3,851 \(m\) at the summit of Humphreys Peak. It
-is located within the largest contiguous ponderosa pine (\emph{Pinus
-ponderosa}) forest in North America. Ponderosa pine covers roughly 40\%
-of the national forest an area of about 340,000 hectares, primarily
-between 2000 - 2400 \(m\) in elevation.
+The Coconino National Forest is located in northern Arizona near the
+cities of Flagstaff and Sedona. Its elevation ranges from 790 m near the
+Verde River to 3,851 m at the summit of Humphreys Peak. The Coconino
+National Forest spans the Mogollon Rim, a topographic feature forming
+the southern edge of the Colorado Plateau. The Mogollon Rim has been
+identified as an important groundwater recharge area for regional
+aquifers \citep{parker2005} of the estimated 2.1 billion \(m^3\)
+(174,000 acre-feet of precipitation that falls on the Mogollon Rim,
+about 8\% is estimated to recharge the regional groundwater
+aquifers\citep{parker2005}. Precipitation along the Mogollon Rim is
+bi-modal, with wet winters and a late-summer monsoon season. Isotopic
+groundwater analysis has revealed that Northern Arizona's recharge is
+dominated by winter precipitation \citep{eastoe2007, eastoe2023}.
 
-\begin{itemize}
-\item
-  The Coconino National Forest also spans the Mogollon Rim, which has
-  been identified as a an important recharge area for the regional
-  groundwater aquifers
-\item
-  Of the estimated 1,740,000 acre-feet of precipitation that falls on
-  the Mogollon Rim annually, about 8 percent is estimated to recharge
-  the regional aquifers \citep{parker2005}.
-\end{itemize}
+The Coconino National Forest is located within North America's largest
+contiguous ponderosa pine (Pinus ponderosa) forest. Ponderosa pine
+covers roughly 40\% of the national forest's area of about 340,000
+\(ha\), primarily between 2000 and 2400 \(m\) in elevation. While the
+Ponderosa Pine forest is the largest vegetation type, the Coconino
+National Forest hosts various shrub and sagebrush communities and pinyon
+Juniper forests at lower elevations. Mixed conifer forests dominated by
+spruce, pine, and fir at higher elevations can be found along with
+sporadic aspen stands. Isotopic studies of plant water use have found
+that larger ponderosa pine trees primarily utilize deeper soil moisture
+from winter precipitation, while understory vegetation and smaller trees
+utilize shallow soil water from monsoonal storms
+\citep{kerhoulas2013, kerhoulas2023}.
+
+\subsection{Define goals}\label{define-goals}
 
 \subsection{Initial Suitability
-Screen}\label{initial-suitability-screen}
+Screening}\label{initial-suitability-screening}
 
-Areas were considered unsuitable for the following reasons:
+There are obviously many other considerations for where thinning should
+be done other than whether they are ecologically or geologically
+suitable areas; one example would be areas managed as wilderness, where
+thinning may be incompatible with land use management goals. We masked
+out all wilderness areas within the Coconino National Forest from
+consideration. This same technique could be used to mask other areas
+that are managed for specific values incongruent with forest treatment
+or requiring specialized treatment.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Areas with Max annual precipitation 1991 - 2020 \textless{} 500mm
-  {[}source: AORC Max Annual Precipitation 1991 - 2020{]}
-\item
-  All Landcover types other than 410 Deciduous Forest,42 - Evergreen
-  Forest, \& 43 - Mixed Forest {[}source: NLCD Landcover 2021{]}
-\item
-  Forest Vegetation types that include attributes EVT\_LF =
-  {[}``Water'', ``Shrub'', ``Sparse'', ``Herb'', ``Developed'',
-  ``Barren'', ``Agriculture''{]} and EVT\_PHYS = {[}``Developed'',
-  ``Riparian'', ``Agriculture''{]} and including keywords in EVT\_NAME =
-  {[}``Madrean'', ``Savanna''{]}. {[}Source: LF2023\_240\_EVT{]}
-  Landfire
-\item
-  Wilderness Areas
-\end{enumerate}
+Next, we masked out areas with maximum annual precipitation below
+500\(mm\). Several studies have suggested that below 500\(mm\) of yearly
+precipitation, thinning does not seem to affect water yield, likely
+because below that threshold, most precipitation is evaporated
+regardless of forest condition, resulting in little or no recharge
+\citep{bosch1982, hibbert1979b, adams2012a, biederman2022a}
+
+We then screened out incompatible land uses, using the National Land
+Cover data set and retaining only land cover classes: 41-Deciduous
+forests, 42- Evergreen forest, and 43- Mixed forest. Then we used the
+Landfire Effective vegetation type maps and filtered out all forested
+areas with classes containing the keywords ``Urban,'' ``Developed,''
+``Agriculture,'' ``Madrean,'' or ``Savannah.''
 
 \subsection{Suitability Criteria}\label{suitability-criteria}
 
@@ -388,22 +412,22 @@ Areas were considered unsuitable for the following reasons:
 Index}\label{topographic-relative-moisture-index}
 
 Topographic Relative Moisture Index (TRMI) incorporates several
-topographic parameters that influence moisture dynamics including slope
-gradient, aspect, relative elevation (or topographic position) and
+topographic parameters that influence moisture dynamics, including slope
+gradient, aspect, relative elevation (or topographic position), and
 landscape convexity or concavity \citep{parker1982}. TRMI data comes
 from the Southwest Regional Gap Analysis
 \href{https://swregap.org/data/}{(SWReGAP)} where terrain features are
 separated into 10 categories ranked in terms of soil moisture. Del Campo
-and others \citep{del_campo_effectiveness_2019} examined below ground
-hydrological processes in thinned semi-arid watersheds and found that
+and others \citep{del_campo_effectiveness_2019} examined below-ground
+hydrological processes in thinned semi-arid watersheds. They found that
 sites with high antecedent soil moisture had the highest response, with
-drainage to deeper soil layers increasing by 50mm/year relative to
-control sites.
+drainage to deeper soil layers increasing by \(50\frac{mm}{year}\)
+relative to control sites.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2361}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5278}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2361}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4930}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Class Name
@@ -447,20 +471,62 @@ with maximum sun exposure (in the Northern Hemisphere) are the driest
 due to high evaporation and limited water retention. & 1 \\
 \end{longtable}
 
+\begin{figure}[H]
+
+{\centering \includegraphics{images/TRMI.jpg}
+
+}
+
+\caption{Topographic Relative Moisture Index from the Southwest Regional
+Gap Analysis (SWReGAP)}
+
+\end{figure}%
+
 \subsubsection{Basal Area}\label{basal-area}
 
 We extracted basal area estimates from the TreeMap 2016
-\citep{riley2022} conus dataset.
+\citep{riley2022} CONUS dataset.
+
+\begin{figure}[H]
+
+{\centering \includegraphics{images/Basal_Area.jpg}
+
+}
+
+\caption{Basal Area in cubic meters per hectare derived from the 2016
+TreeMap dataset.}
+
+\end{figure}%
 
 \subsubsection{Snowfall Dominance}\label{snowfall-dominance}
 
 Ask Patrick Broxton how it was calculated.
+
+\begin{figure}[H]
+
+{\centering \includegraphics{images/Snowfall Fraction.jpg}
+
+}
+
+\caption{Percentage of Annual Precipitation that Falls as Snow}
+
+\end{figure}%
 
 \subsubsection{Mean Annual
 Precipitation}\label{mean-annual-precipitation}
 
 Utilized AORC Retrospective forcing data for average water year (WY)
 precipitation 1991 - 2020
+
+\begin{figure}[H]
+
+{\centering \includegraphics{images/Mean_Annual_Precipitation.jpg}
+
+}
+
+\caption{Mean Annual Precipitation for years 1991 - 2020}
+
+\end{figure}%
 
 \subsubsection{Subsurface Infiltration
 Capacity}\label{subsurface-infiltration-capacity}
@@ -469,17 +535,55 @@ We utilized the Global Hydrological Maps of Permeability and Porosity
 (GLHYMPS) to estimate subsurface infiltration capacity
 \citep{gleeson2014}
 
+\begin{figure}[H]
+
+{\centering \includegraphics{images/GLHYMPS.jpg}
+
+}
+
+\caption{Subsurface Infiltration Capacity, a combination of Permeability
+and Porosity values from the GLHYMPS dataset (Gleeson et al., 2014).
+Higher values (cooler colors) indicate higher infiltration capacity,
+while browner colors and lower values indicate lower infiltration
+capacity. Keep in mind this does not consider secondary or tertiary
+permeability or porosity due to faults, fractures, caves, and conduits.}
+
+\end{figure}%
+
 \subsubsection{Soil Hydrologic Type}\label{soil-hydrologic-type}
 
 Data from gNATSGO was used to estimate the soil's ability to infiltrate
 water, we used the Hydrologic Soil Type.
 
+\begin{figure}[H]
+
+{\centering \includegraphics{images/Hydrologic_soil_type.jpg}
+
+}
+
+\caption{Hydrologic Soil Type from gNATSGO.}
+
+\end{figure}%
+
 \subsubsection{Canopy Cover}\label{canopy-cover}
 
 Canopy Cover was obtained from the 2021 National Land Cover Dataset ,
-which provides an estimate of Total Canopy Cover
+which provides an estimate of Total Canopy Cover.
+
+\begin{figure}[H]
+
+{\centering \includegraphics{images/Canopy_Cover.jpg}
+
+}
+
+\caption{Canopy Cover derived from the NLCD 2021}
+
+\end{figure}%
 
 \subsection{Weighting}\label{weighting}
+
+Pairwise comparisons between each variable were made using the
+\href{https://www.inowas.com/tools/t05-gis-mcda/}{INOWAS GIS MCDA tool}
 
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
@@ -501,7 +605,8 @@ Snowfall Fraction & 14.77 \\
 We identified 30 forest patches of between 50 and 60 Hectares that we
 consider suitable for thinning for the purposes of enhancing groundwater
 recharge. The patches have mean suitability values ranging from 5.8 to
-6.25
+6.25. Over 43,000 ha of the study area has a suitability \(\geq\) 5 and
+about 3,400 ha with suitability \(\geq\) 6
 
 \begin{figure}[H]
 
@@ -509,14 +614,66 @@ recharge. The patches have mean suitability values ranging from 5.8 to
 
 }
 
-\caption{Figure x: Suitability Map for Thinning to Enhance Groundwater
-Recharge}
+\caption{Suitability Map for Thinning to Enhance Groundwater Recharge}
 
 \end{figure}%
 
+\section{Conclusion}\label{conclusion}
+
+\begin{itemize}
+\tightlist
+\item
+  There are significant portions of the Coconino forest that if thinned,
+  are likely to enhance groundwater recharge, however these are not the
+  only benefits. While this study was aimed at maximizing recharge,
+  these same areas are also likely to reduce wildfire risk and improve
+  watershed function enhancing other hydrologic services.
+\end{itemize}
+
 \section{Discussion}\label{discussion}
 
-\subsection{Acknowledgments}\label{acknowledgments}
+\begin{itemize}
+\item
+  novel application of MCDA for mapping areas where forest thinning may
+  enhance groundwater recharge.
+\item
+  Could be adapted to other semi-arid forested
+\item
+  The forest service has a mandate to manage for multiple uses, however
+  groundwater recharge is not currently a use that is explicitly managed
+  for. However, analyses like these can help identify areas that could
+  be managed with aquifer recharge in mind.
+\end{itemize}
+
+\subsection{Future Work}\label{future-work}
+
+\begin{itemize}
+\item
+  Adjusting the suitability map to capture secondary and tertiary
+  permeability and porosity in areas underlain by karst
+\item
+  improved hydrologeolic mapping could improve this process, using
+  higher-resolution data for subsurface infiltration rate.
+\item
+  the soil criteria could be refined by mapping soil Hydraulic
+  conductivity and field capacity rather than just using soil types A -
+  D providing more detail.
+\item
+  could be validated with modeling
+\item
+  Paired watershed studies such as those planned in the Lake Mary
+  Watershed with groundwater monitoring can be used to validate and fine
+  tune model weighting and decision rules between criteria.
+\item
+  this methodology could be used across the 2.6 million acres of
+  Ponderosa Pine forest in Arizona and New mexico
+\item
+  State-wide and regional geologic mapping in Arizona is currently only
+  at the 1:500,000 scale, more detailed data could improve this type of
+  suitability mapping.
+\end{itemize}
+
+\section{Acknowledgments}\label{acknowledgments}
 
 Phasellus interdum tincidunt ex, a euismod massa pulvinar at. Ut
 fringilla ut nisi nec volutpat. Morbi imperdiet congue tincidunt.
@@ -524,7 +681,7 @@ Vivamus eget rutrum purus. Etiam et pretium justo. Donec et egestas sem.
 Donec molestie ex sit amet viverra egestas. Nullam justo nulla,
 fringilla at iaculis in, posuere non mauris. Ut eget imperdiet elit.
 
-\subsection{Open research}\label{open-research}
+\section{Open research}\label{open-research}
 
 Phasellus interdum tincidunt ex, a euismod massa pulvinar at. Ut
 fringilla ut nisi nec volutpat. Morbi imperdiet congue tincidunt.
@@ -532,8 +689,8 @@ Vivamus eget rutrum purus. Etiam et pretium justo. Donec et egestas sem.
 Donec molestie ex sit amet viverra egestas. Nullam justo nulla,
 fringilla at iaculis in, posuere non mauris. Ut eget imperdiet elit.
 
-\subsection*{References}\label{references}
-\addcontentsline{toc}{subsection}{References}
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
 
 \renewcommand{\bibsection}{}
 \bibliography{bibliography.bib}
