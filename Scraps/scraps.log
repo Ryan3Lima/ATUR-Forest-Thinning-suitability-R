@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 23.10) (preloaded format=xelatex 2024.6.7)  11 DEC 2024 15:56
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 23.10) (preloaded format=xelatex 2024.6.7)  12 DEC 2024 10:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -984,11 +984,11 @@ put line 210.
 
 
 Package natbib Warning: Citation `smerdon_overview_2009' on page 1 undefined on
- input line 212.
+ input line 211.
 
 
 Package natbib Warning: Citation `schenk_impacts_2020' on page 1 undefined on i
-nput line 212.
+nput line 211.
 
 
 Package natbib Warning: Citation `schenk_impacts_2020' on page 1 undefined on i
@@ -996,35 +996,35 @@ nput line 213.
 
 
 Package natbib Warning: Citation `dwivedi_how_2024' on page 1 undefined on inpu
-t line 219.
+t line 218.
 
 
 Package natbib Warning: Citation `biederman_streamflow_2022' on page 1 undefine
-d on input line 219.
+d on input line 218.
 
 
 Package natbib Warning: Citation `broxton_subseasonal_2023' on page 1 undefined
- on input line 219.
+ on input line 218.
 
 
 Package natbib Warning: Citation `biederman_streamflow_2022' on page 1 undefine
-d on input line 223.
+d on input line 222.
 
 
 Package natbib Warning: Citation `carroll_evaluating_2016' on page 1 undefined 
-on input line 223.
+on input line 222.
 
 
 Package natbib Warning: Citation `adams_ecohydrological_2012' on page 1 undefin
-ed on input line 223.
+ed on input line 222.
 
 
 Package natbib Warning: Citation `zou_streamflow_2010' on page 1 undefined on i
-nput line 223.
+nput line 222.
 
 
 Package natbib Warning: Citation `hibbert1979' on page 1 undefined on input lin
-e 223.
+e 222.
 
 
 Overfull \hbox (2.22pt too wide) has occurred while \output is active
@@ -1037,134 +1037,121 @@ Overfull \hbox (2.22pt too wide) has occurred while \output is active
 ]
 
 Package natbib Warning: Citation `sankey_regionalscale_2021' on page 2 undefine
-d on input line 232.
+d on input line 231.
 
 
 Package natbib Warning: Citation `sankey_thinning_2022' on page 2 undefined on 
-input line 232.
+input line 231.
 
 
 Package natbib Warning: Citation `rodman2024' on page 2 undefined on input line
- 234.
+ 233.
 
 
 Package natbib Warning: Citation `belmonte_soil_2022' on page 2 undefined on in
-put line 238.
+put line 237.
 
 
 Package natbib Warning: Citation `del_campo_global_2022' on page 2 undefined on
- input line 238.
+ input line 237.
 
 
 Package natbib Warning: Citation `odonnell_vegetation_2021' on page 2 undefined
- on input line 238.
+ on input line 237.
 
 
 Package natbib Warning: Citation `del_campo_effectiveness_2019' on page 2 undef
-ined on input line 238.
+ined on input line 237.
 
 
 Package natbib Warning: Citation `wyatt_estimating_2013' on page 2 undefined on
- input line 245.
+ input line 244.
 
 
 Package natbib Warning: Citation `sankey_regionalscale_2021' on page 2 undefine
-d on input line 250.
+d on input line 249.
 
 
 Package natbib Warning: Citation `sankey_thinning_2022' on page 2 undefined on 
-input line 253.
+input line 252.
 
 
 Package natbib Warning: Citation `del_campo_global_2022' on page 2 undefined on
- input line 256.
+ input line 255.
 
 
 Package natbib Warning: Citation `rodman2024' on page 2 undefined on input line
- 259.
+ 258.
 
 
 Package natbib Warning: Citation `belmonte_soil_2022' on page 2 undefined on in
-put line 262.
+put line 261.
 
 
 Package natbib Warning: Citation `del_campo_effectiveness_2019' on page 2 undef
-ined on input line 267.
+ined on input line 266.
 
 
 Package natbib Warning: Citation `schenk_impacts_2020' on page 2 undefined on i
-nput line 273.
+nput line 272.
 
 
 Package natbib Warning: Citation `smerdon_overview_2009' on page 2 undefined on
- input line 278.
+ input line 277.
 
 
 Package natbib Warning: Citation `lewis_prediction_2023' on page 2 undefined on
- input line 289.
-
-
-Package natbib Warning: Citation `broxton_subseasonal_2023' on page 2 undefined
- on input line 295.
+ input line 288.
 
 [2]
 
+Package natbib Warning: Citation `broxton_subseasonal_2023' on page 3 undefined
+ on input line 294.
+
+
 Package natbib Warning: Citation `dwivedi_how_2024' on page 3 undefined on inpu
-t line 300.
+t line 299.
 
 
 Package natbib Warning: Citation `belmonte_uav-based_2021' on page 3 undefined 
-on input line 303.
+on input line 302.
 
 
 Package natbib Warning: Citation `odonnell_vegetation_2021' on page 3 undefined
- on input line 306.
+ on input line 305.
 
 
 Package natbib Warning: Citation `donager_integrating_2021' on page 3 undefined
- on input line 310.
+ on input line 309.
 
 
 Package natbib Warning: Citation `bosch_review_1982' on page 3 undefined on inp
-ut line 321.
+ut line 320.
 
 
 Package natbib Warning: Citation `adams_ecohydrological_2012' on page 3 undefin
-ed on input line 323.
+ed on input line 322.
 
 
 Package natbib Warning: Citation `carroll_evaluating_2016' on page 3 undefined 
-on input line 331.
+on input line 330.
 
 
 Package natbib Warning: Citation `biederman_streamflow_2022' on page 3 undefine
-d on input line 337.
+d on input line 336.
 
-
-Package natbib Warning: Citation `zhang_response_2001' on page 3 undefined on i
-nput line 344.
-
-[3]
-
-Package natbib Warning: Citation `goeking_forests_2020' on page 4 undefined on 
-input line 361.
-
-
-LaTeX Warning: File `images/Aspect_suitability.PNG' not found on input line 400
-.
-
-! Unable to load picture or PDF file 'images/Aspect_suitability.PNG'.
-<to be read again> 
-                   }
-l.400 ...degraphics{images/Aspect_suitability.PNG}
-                                                   
+! You can't use `\spacefactor' in display math mode.
+\@->\spacefactor 
+                 \@m {}
+l.341   1979)\[\@
+                 \] 
 Here is how much of TeX's memory you used:
- 21137 strings out of 410378
- 379868 string characters out of 5788031
- 1926416 words of memory out of 5000000
- 42219 multiletter control sequences out of 15000+600000
+ 21077 strings out of 410378
+ 377906 string characters out of 5788031
+ 1925416 words of memory out of 5000000
+ 42162 multiletter control sequences out of 15000+600000
  563519 words of font info for 78 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 90i,9n,120p,1005b,413s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,9n,120p,1005b,411s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on scraps.pdf (3 pages).
+Output written on scraps.pdf (2 pages).

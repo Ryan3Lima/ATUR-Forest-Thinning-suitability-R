@@ -5,10 +5,7 @@ date: "2024-12-09"
 output: html_document
 ---
 
-
-
 The connection between forests and water supplies is well documented. Around 65% of surface water in the western states originates from forested lands, which cover just 29% of the land area [@brown_source_2005]. The average annual precipitation in the Lower Colorado River Basin is about 330 $mm$, and only about 10 $mm$ of that precipitation becomes streamflow, while much of the rest is lost to evapotranspiration [@zou_streamflow_2010]. Regional studies have found that up to 90% of annual precipitation in semi-arid forests is lost evapotranspiration [@dore_recovery_2012; @ha_evapotranspiration_2015; @yaseef_ecohydrology_2010; @hibbert1979]. Sublimation has been shown to remove 10 - 90% of snowfall in the Colorado River Basin, while the remaining snowmelt provides over 80% of streamflow to the Colorado River [@lundquist_sublimation_2024]. Over half of streamflow from the Upper Colorado River basin comes from groundwater sources primarily recharged by snowmelt [@miller2016]. Therefore, small reductions in evaporative losses could have out-sized impacts on available water supplies, particularly enhancing groundwater recharge in terrains underlain by karst lithology [@hibbert1979; @wyatt2013].
-
 
 \*\* Papers on how thinning works primarily in snow-dominated systems\*\*
 
@@ -16,7 +13,7 @@ This research aims to develop criteria for areas suitable for thinning to enhanc
 
 ## Regional Hydrologic Responses to Treatment
 
-Several regional studies link forest treatment to changes in stand-level ecohydrology, including increased tree growth in Ponderosa Pines greater soil moisture and total ecosystem moisture leading to increased drought resilience [@sankey_regionalscale_2021; @sankey_thinning_2022], increased snow retention [@broxton_subseasonal_2023; @belmonte2021], greater streamflow [@baker_effects_1986], water table rise \[Denver et al in Prep \][@smerdon_overview_2009][@schenk_impacts_2020] and increased springflow [@schenk_impacts_2020]\[Hart prarie and hoxworth in prep\].
+Several regional studies link forest treatment to changes in stand-level ecohydrology, including increased tree growth in Ponderosa Pines greater soil moisture and total ecosystem moisture leading to increased drought resilience [@sankey_regionalscale_2021; @sankey_thinning_2022], increased snow retention [@broxton_subseasonal_2023; @belmonte2021], greater streamflow [@baker_effects_1986], water table rise $$Denver et al in Prep $$[@smerdon_overview_2009][@schenk_impacts_2020] and increased springflow [@schenk_impacts_2020]$$Hart prarie and hoxworth in prep$$.
 
 ### Water Yield/Runoff
 
@@ -68,7 +65,7 @@ A synthesis of several treatment types across Northern Arizona, including thinni
 
 -   [@carroll_evaluating_2016] found a threshold hydrologic response when evaluating the thinning of a snow-dominated semi-arid Pinyon-Juniper community in the Great Basin. They found that a positive water yield in thinned plots was only observed when precipitation exceeded 400mm annually (wet years)
 
--   [@biederman_streamflow_2022] suggests that disturbance will positively impact streamflow for a minimum of several years following disturbance in areas where mean annual precipitation exceeds \~500mm. "Presumably because below 500 mm, most precipitation is evaporated regardless of forest condition (Hibbert, 1979)\[\@\]
+-   [@biederman_streamflow_2022] suggests that disturbance will positively impact streamflow for a minimum of several years following disturbance in areas where mean annual precipitation exceeds \~500mm. "Presumably because below 500 mm, most precipitation is evaporated regardless of forest condition (Hibbert, 1979)$$\@$$
 
 -   [@zhang_response_2001] evaluated 250 worldwide catchment studies and found that the differences in ET between forested and non-forested catchments diminish in areas with annual rainfall less than 500 mm
 
@@ -144,7 +141,6 @@ In order to maximize snow cover while reducing the canopy cover by 20%, we consi
 
 $$y =\begin{cases} 10 \cdot \left(1 - \left(\frac{x - 37}{16 - 37}\right)^2\right),& \text{if } x < 37 \text{ and } x > 16, \\10 \cdot \left(1 - \left(\frac{x - 37}{80 - 37}\right)^2\right), & \text{if } x \geq 37 \text{ and } x < 80, \\0, & \text{if } x \leq 16 \text{ or } x \geq 80.\end{cases}$$ {#eq-cc-suitability}
 
-
 ```{r, echo=F, warning=F,message=F, results='hide'}
 
 library(ggplot2)
@@ -211,7 +207,6 @@ combined_plot <- grid.arrange(plot1, plot2, ncol = 1)
 print(combined_plot)
 ```
 
-
 > **Dataset: NLCD 2021 Total Canopy Cover (% Cover)**
 
 ##### Soil Hydrologic Conditions
@@ -232,4 +227,4 @@ Tree Canopy Cover = 20% Vegetation Condition Class = 20% Slope = 20% Aspect = 20
 
 ![](images/PreliminarySuitabilityMap.PNG)
 
----
+------------------------------------------------------------------------

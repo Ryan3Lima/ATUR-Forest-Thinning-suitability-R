@@ -1,0 +1,10 @@
+project:
+  title: "ATUR-Forest-Thinning-suitability-R"
+editor: visual
+format:
+  html:
+    toc: true
+  docx: default
+  pdf: default
+  elsevier-pdf:
+    keep-tex: true 

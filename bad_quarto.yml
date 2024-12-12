@@ -1,0 +1,16 @@
+project:
+  title: "ATUR-Forest-Thinning-suitability-R"
+  type: manuscript
+editor: visual
+execute:
+  freeze: auto
+
+format:
+  html:
+    toc: true
+    comments:
+      hypothesis: true
+  docx: default
+  jats: default
+  elsevier-pdf:
+    keep-tex: true 
